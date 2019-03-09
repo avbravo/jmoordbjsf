@@ -1,0 +1,137 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03/08/2019, 09:00:37 PM
+    Author     : avbravo
+*/
+
+
+
+.ui-datatable * {
+    border-collapse:collapse;width:100%;
+    background-color: white !important;
+
+}
+
+
+.ui-datatable .ui-datatable-header,.ui-datatable .ui-datatable-footer{
+    text-align:center;padding:4px 10px;
+}
+.ui-datatable .ui-datatable-header{
+    border-bottom:0px none;
+}
+.ui-datatable .ui-datatable-footer{
+    border-top:0px none;
+}
+
+
+.ui-button.ui-state-default {
+    background-color: #428bca!important;
+
+    border-radius:4px !important;
+    border:1px solid #83c41a !important;
+    font-size:12px !important;
+    padding:6px 18px !important;
+
+    background-color: #357ebd !important;
+    border-color: #357ebd !important;
+}
+
+
+.ui-button.ui-state-hover {
+    background-color: #d4d0c8!important;
+}
+.ui-button.ui-state-active {
+    background-color: blue !important;
+}
+
+
+.ui-widget-content .ui-datatable-even{
+    background: #F2F5F9;
+}
+
+.ui-widget-content .ui-datatable-odd{
+    background: red;
+}
+
+
+/*
+Dialogo
+*/
+.customDialog {
+    color : white;
+}
+
+.customDialog .ui-dialog-titlebar.ui-widget-header {
+    background: white !important;
+}
+
+/*
+disabled
+*/
+
+.ui-state-disabled {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)" ; 
+	filter: Alpha(Opacity=100) !important;	
+	opacity: 100 !important;
+	box-shadow:none !important;
+	color: #000000 !important;
+	font-weight: bold !important; 
+            border: none !important;
+}
+
+.ui-autocomplete-multiple-container.ui-inputfield {
+    width: 100% !important;
+}
+
+
+  .formulario {
+                margin: 0 auto;
+                max-width: 80%;
+                padding: 15px;
+            }
+            
+            
+            /*
+para el autocomplete
+*/
+.agenda-compliant-custom .fc-ltr .fc-basic-view .fc-day-number 
+{
+    background-image: url("../resources/images/box.png") !important;
+    background-repeat: no-repeat !important;
+    background-position:left top !important;
+    background-size: 25px 15px !important
+}
+
+.agenda-noncompliant-custom .fc-ltr .fc-basic-view .fc-day-number {
+    background-image: url("../resources/images/bluebox.png") !important;
+    background-repeat: no-repeat !important;
+    background-position:left top !important;
+    background-size: 25px 15px !important
+}
+
+
+
+.public-event, .public-event .fc-event-skin, .public-event a{
+    background-color: green; 
+    color: black;
+    border-color: greenyellow;
+}
+
+
+/*
+dialog con barra azul
+*/
+
+
+.customDialog {
+    color : white;
+}
+
+.customDialog .ui-dialog-titlebar.ui-widget-header {
+    background: #006699 !important;
+    color: white;
+}
