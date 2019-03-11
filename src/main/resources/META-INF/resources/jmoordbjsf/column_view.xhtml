@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <composite:interface >
+
+
+        <composite:attribute name="rendered" default="true"/>
+        <composite:attribute name="edit" 
+                             method-signature="java.lang.String action()" />
+      
+
+    </composite:interface>
+    <composite:implementation>
+
+
+        <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
+            <p:row>
+                <p:column>
+
+                    <b:commandButton                 
+                        style="margin-bottom:10px;"
+                        iconAwesome="fa-edit" 
+                        rendered="#{cc.attrs.rendered}" 
+                        title="#{app['button.edit']}"
+                        immediate="true"
+                        oncomplete="remoteid()"
+                        action="#{cc.attrs.edit}">
+
+                    </b:commandButton>
+                </p:column>
+            </p:row>
+
+
+        </p:panelGrid>
+
+    </composite:implementation>
+
+</html>

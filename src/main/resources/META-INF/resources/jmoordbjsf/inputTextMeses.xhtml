@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+        <composite:attribute name="label" />
+        <composite:attribute name="title" default="" />
+        <composite:attribute name="update" default="" />
+        <composite:attribute name="value" />
+        <composite:attribute name="columns" default="1" />
+        <composite:attribute name="readonly" default="false"/>
+        <composite:attribute name="disabled" default="false" />
+      
+
+        <composite:attribute name="action" 
+                             method-signature="java.lang.String action()" />
+       
+     
+
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+        <p:remoteCommand  update="#{cc.attrs.update}"
+                          name="_remoteinputTextMeses" 
+                          action="#{cc.attrs.action}"
+                          />
+
+
+        <b:inputText       
+
+            placeholder="#{cc.attrs.label}"
+          
+            value="#{cc.attrs.value}" 
+            disabled="#{cc.attrs.disabled}" 
+            readonly="#{cc.attrs.readonly}" 
+            required="false"
+          update="#{cc.attrs.update}"
+            requiredMessage="#{cc.attrs.label} #{app['info.required']}"
+            onkeypress="if (event.keyCode == 13) {
+                                         _remoteinputTextMeses();
+                                         return false;
+                                     }">
+            
+            <f:facet name="append">
+                <b:commandButton 
+                    look="danger"
+                    iconAwesome="fa-calculator" 
+                    title="#{cc.attrs.label}" 
+                    update="#{cc.attrs.update}"
+                    action="#{cc.attrs.action}">
+   
+                </b:commandButton>
+
+            </f:facet>
+        </b:inputText>
+
+
+
+
+
+    </composite:implementation>
+
+</html>

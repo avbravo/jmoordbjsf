@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <composite:interface >
+
+
+        <composite:attribute name="value" />
+        <composite:attribute name="id" />
+        <composite:attribute name="requiredMessage" default=""/>
+        <composite:attribute name="required" default="true"/>                 
+        <composite:attribute name="selectLabel" default=""/>
+        <composite:attribute name="selectValue" default=""/>
+        <composite:attribute name="selectDisable" default="true"/>
+        
+        <composite:attribute name="selectItemsValue" default="" />
+        <composite:attribute name="selectItemsLabel" />
+        <composite:attribute name="onchange" default ="" />
+        <composite:attribute name="update" default ="" />
+
+    </composite:interface>
+    <composite:implementation>
+
+             
+        
+        <b:selectOneMenu id="#{cc.attrs.id}" 
+                         
+                         value="#{cc.attrs.value}"  
+                         required="#{cc.attrs.required}"  
+                         requiredMessage="#{cc.attrs.requiredMessage} #{app['info.required']}"
+                         update="#{cc.attrs.update}"
+                         onchange="#{cc.attrs.onchange}"
+                         >
+
+
+                            <!--<f:selectItem itemLabel="#{app['selectonemenu.select']}" itemValue="#{null}"/>-->
+                            <f:selectItem itemLabel="#{app['mes.ene']}" itemValue="enero" />
+                            <f:selectItem itemLabel="#{app['mes.feb']}" itemValue="febrero" />
+                            <f:selectItem itemLabel="#{app['mes.mar']}" itemValue="marzo" />
+                            <f:selectItem itemLabel="#{app['mes.abr']}" itemValue="abril" />
+                            <f:selectItem itemLabel="#{app['mes.may']}" itemValue="mayo" />
+                            <f:selectItem itemLabel="#{app['mes.jun']}" itemValue="junio" />
+                            <f:selectItem itemLabel="#{app['mes.jul']}" itemValue="julio" />
+                            <f:selectItem itemLabel="#{app['mes.ago']}" itemValue="agosto" />
+                            <f:selectItem itemLabel="#{app['mes.sep']}" itemValue="septiembre" />
+                            <f:selectItem itemLabel="#{app['mes.oct']}" itemValue="octubre" />
+                            <f:selectItem itemLabel="#{app['mes.nov']}" itemValue="noviembre" />
+                            <f:selectItem itemLabel="#{app['mes.dic']}" itemValue="diciembre" />
+                        </b:selectOneMenu>
+    </composite:implementation>
+
+</html>

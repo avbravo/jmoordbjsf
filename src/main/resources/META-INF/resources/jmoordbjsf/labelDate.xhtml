@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <composite:interface >
+
+
+
+        <composite:attribute name="value" />
+        <composite:attribute name="pattern" default="dd/MM/yyyy"/>
+
+    </composite:interface>
+    <composite:implementation>
+
+
+        <p:outputLabel  value="#{cc.attrs.value}"  >
+                  <f:convertDateTime pattern="#{cc.attrs.pattern}" />
+        </p:outputLabel>
+
+                                                  
+                                                  
+    </composite:implementation>
+
+</html>

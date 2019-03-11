@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+        <composite:attribute name="label" />
+        <composite:attribute name="title" default="" />
+        <composite:attribute name="update" default="" />
+        <composite:attribute name="value" />
+        <composite:attribute name="columns" default="1" />
+        <composite:attribute name="readonly" default="false"/>
+        <composite:attribute name="disabled" default="false" />
+
+ 
+     
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+                    <b:inputText       
+                
+                     placeholder="#{cc.attrs.label}"
+                 
+                 
+                  labelStyle="font-size: 45px"
+                             value="#{cc.attrs.value}" 
+                             readonly="true" 
+                             required="false"
+                             requiredMessage="#{cc.attrs.label} #{app['info.required']}"
+                            >
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="fa-dollar" />
+
+                    </f:facet>
+                   
+                </b:inputText>
+
+       
+
+
+            
+      </composite:implementation>
+
+</html>
