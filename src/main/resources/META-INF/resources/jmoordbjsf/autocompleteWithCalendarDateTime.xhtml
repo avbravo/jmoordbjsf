@@ -19,19 +19,37 @@
         <composite:attribute name="converter"/>
         <composite:attribute name="columnpaneltip" default="1"/>
         <composite:attribute name="labeltip1" />
-
         <composite:attribute name="labeltip2" default=""/>
         <composite:attribute name="labeltip3" default=""/>
         <composite:attribute name="labeltip4" default=""/>
         <composite:attribute name="labeltip5" default=""/>
         <composite:attribute name="labeltip6" default=""/>
-        <composite:attribute name="calendar1" default=""/>
-        <composite:attribute name="calendar2" default=""/>
-        <composite:attribute name="calendar3" default=""/>
-        <composite:attribute name="calendar4" default=""/>
-        <composite:attribute name="calendar5" default=""/>
-        <composite:attribute name="calendar6" default=""/>
-        <composite:attribute name="patternDate" default="dd/MM/yyyy"/>
+        <composite:attribute name="labelvalue1" default=""/>
+        <composite:attribute name="labelvalue2" default=""/>
+        <composite:attribute name="labelvalue3" default=""/>
+        <composite:attribute name="labelvalue4" default=""/>
+        <composite:attribute name="labelvalue5" default=""/>
+        <composite:attribute name="labelvalue6" default=""/>
+
+
+        <composite:attribute name="calendardatelabel1" default=""/>
+        <composite:attribute name="calendardatelabel2" default=""/>
+        <composite:attribute name="calendardatelabel3" default=""/>
+        <composite:attribute name="calendartimelabel1" default=""/>
+        <composite:attribute name="calendartimelabel2" default=""/>
+        <composite:attribute name="calendartimelabel3" default=""/>
+
+        <composite:attribute name="calendardatevalue1" default=""/>
+        <composite:attribute name="calendardatevalue2" default=""/>
+        <composite:attribute name="calendardatevalue3" default=""/>
+        <composite:attribute name="calendartimevalue1" default=""/>
+        <composite:attribute name="calendartimevalue2" default=""/>
+        <composite:attribute name="calendartimevalue3" default=""/>
+
+
+
+        <composite:attribute name="calendarpatternDate" default="dd/MM/yyyy"/>
+        <composite:attribute name="calendarpatternTime" default="HH:mm:ss a"/>
         <composite:attribute name="calendarsize" default="8"/>
 
 
@@ -80,38 +98,38 @@
                     <h:outputText value="#{cc.attrs.labeltip6}" />
                     <h:outputText value="#{cc.attrs.labelvalue}" />
 
-                    <h:outputText value="#{cc.attrs.labelcalendar1}" />
+                    <h:outputText value="#{cc.attrs.calendardatelabel1}" />
                     <p:calendar  disabled="true"  size="#{cc.attrs.calendarsize}"                                  
-                                 pattern="#{cc.attrs.patternDate}"
-                                 value="#{cc.attrs.calendar1}"  />
+                                 pattern="#{cc.attrs.calendarpatternDate}"
+                                 value="#{cc.attrs.calendardatevalue1}"  />
 
-                    <h:outputText value="#{cc.attrs.labelcalendar2}" />
+                    <h:outputText value="#{cc.attrs.calendartimelabel1}" />
                     <p:calendar  disabled="true"  size="#{cc.attrs.calendarsize}"                                  
-                                 pattern="#{cc.attrs.patternDate}"
-                                 value="#{cc.attrs.calendar2}"  />
+                                 pattern="#{cc.attrs.calendarpatternTime}"
+                                 value="#{cc.attrs.calendartimevalue1}"  />
 
 
-                    <h:outputText value="#{cc.attrs.labelcalendar3}" />
+                    <h:outputText value="#{cc.attrs.calendardatedatelabel2}" />
                     <p:calendar  disabled="true"  size="#{cc.attrs.calendarsize}"                                  
-                                 pattern="#{cc.attrs.patternDate}"
-                                 value="#{cc.attrs.calendar3}"  />
+                                 pattern="#{cc.attrs.calendarpatternDate}"
+                                 value="#{cc.attrs.calendardatevalue2}"  />
 
-                    <h:outputText value="#{cc.attrs.labelcalendar4}" />
+                    <h:outputText value="#{cc.attrs.calendartimelabel2}" />
                     <p:calendar  disabled="true"  size="#{cc.attrs.calendarsize}"                                  
-                                 pattern="#{cc.attrs.patternDate}"
-                                 value="#{cc.attrs.calendar4}"  />       
+                                 pattern="#{cc.attrs.calendarpatternTime}"
+                                 value="#{cc.attrs.calendartimevalue2}"  />       
 
 
-                    <h:outputText value="#{cc.attrs.labelcalendar5}" />
+                    <h:outputText value="#{cc.attrs.calendardatelabel3}" />
                     <p:calendar  disabled="true"  size="#{cc.attrs.calendarsize}"                                  
-                                 pattern="#{cc.attrs.patternDate}"
-                                 value="#{cc.attrs.calendar5}"  />       
+                                 pattern="#{cc.attrs.calendarpatternDate}"
+                                 value="#{cc.attrs.calendardatevalue3}"  />       
 
 
-                    <h:outputText value="#{cc.attrs.labelcalendar6}" />
+                    <h:outputText value="#{cc.attrs.calendartimelabel3}" />
                     <p:calendar  disabled="true"  size="#{cc.attrs.calendarsize}"                                  
-                                 pattern="#{cc.attrs.patternDate}"
-                                 value="#{cc.attrs.calendar6}"  />       
+                                 pattern="#{cc.attrs.calendarpatternTime}"
+                                 value="#{cc.attrs.calendartimevalue3}"  />       
 
                 </h:panelGrid>
             </f:facet>
