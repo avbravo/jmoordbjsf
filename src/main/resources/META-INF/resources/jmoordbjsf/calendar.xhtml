@@ -14,27 +14,36 @@
         <composite:attribute name="mindate" default=""/>
         <composite:attribute name="mode" default="popup"/>
         <composite:attribute name="required"/>
+        <composite:attribute name="update" default=""/>
+        <composite:attribute name="disabled" default="false"/>
+
+        <composite:attribute name="selectOtherMonths" default="true"/>
+        <composite:attribute name="showTodayButton" default="true"/>
+        <composite:attribute name="navigator" default="true"/>
         <composite:attribute name="pattern" default="dd/MM/yyyy" />
+        <composite:attribute name="listener"  
+                             method-signature="void handleSelect(org.primefaces.event.SelectEvent)" />
     </composite:interface>
     <composite:implementation>
 
 
 
-
         <p:calendar
             id="#{cc.attrs.id}" 
-           mode="#{cc.attrs.mode}"
-           
+            mode="#{cc.attrs.mode}"
             value="#{cc.attrs.value}"
+            disabled ="#{cc.attrs.disabled}"
             placeholder="#{cc.attrs.label}"  
             required="#{cc.attrs.required}" 
             requiredMessage="#{cc.attrs.label} #{app['info.required']}"
             pattern="#{cc.attrs.pattern}"
-            selectOtherMonths="true"
-            showTodayButton="true"
+            selectOtherMonths="#{cc.attrs.selectOtherMonths}"
+            showTodayButton="#{cc.attrs.showTodayButton}"
             mindate="#{cc.attrs.mindate}"
-            navigator="true">
-   
+            navigator="#{cc.attrs.navigator}">
+            <p:ajax event="dateSelect" 
+                    listener="#{cc.attrs.listener}"
+                    update="#{cc.attrs.update}" />   
         </p:calendar>
 
     </composite:implementation>
