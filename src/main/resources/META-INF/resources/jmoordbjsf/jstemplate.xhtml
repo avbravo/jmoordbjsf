@@ -20,7 +20,13 @@
         <h:outputScript library="jmoordbjsf" name="shBrushJScript.js" target="head"/>
 
 
-
+        <script>SyntaxHighlighter.defaults['gutter'] = false;</script>   
+        <script>
+            if ($.blockUI) {
+                $.blockUI.defaults.overlayCSS.opacity = 0;
+                $.blockUI.defaults.message = '<h1><img src="../javax.faces.resource/images/waitcursor.gif.jsf?ln=bsf" /></h1>';
+            }
+        </script>         
 
     </composite:implementation>
 
