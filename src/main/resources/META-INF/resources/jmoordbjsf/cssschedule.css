@@ -1,0 +1,43 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+ .schedule-orange, .schedule-orange .fc-event-skin, .schedule-orange a{
+                background-color: orange; 
+                icon: url("../resources/images/box.png") !important;                
+                color: black;
+                border-color: darkorange;
+            }
+            .schedule-yellow, .schedule-yellow .fc-event-skin, .schedule-yellow a{
+                background-color: goldenrod; 
+                color: black;
+                border-color: darkgoldenrod;
+            }
+            .schedule-blue, .schedule-bluee .fc-event-skin, .schedule-blue a{
+                background-color: blue; 
+                color: black;
+                border-color: darkblue;
+            }
+
+            .schedule-gray, .schedule-gray .fc-event-skin, .schedule-gray a{
+                background-color: #d4d0c8; 
+                color: black;
+                border-color: darkgray;
+            }
+
+            .schedule-magenta, .schedule-magenta .fc-event-skin, .schedule-magenta a{
+                background-color: magenta; 
+                color: black;
+                border-color: darkmagenta;
+            }
+            .schedule-green, .schedule-green .fc-event-skin, .schedule-green a{
+                background-color: green; 
+                color: black;
+                border-color: darkgreen;
+            }
+            .schedule-red, .schedule-red .fc-event-skin, .schedule-red a{
+                background-color: red; 
+                color: black;
+                border-color: darkred;
+            }
