@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+        
+        <composite:attribute name="columns" default="1" />
+     
+        <composite:attribute name="rendererList" default="true" />
+        <composite:attribute name="renderedsave" default="true" />
+        <composite:attribute name="renderednew" default="true"/>
+     
+        <composite:attribute name="save" 
+                             method-signature="java.lang.String action()" />
+
+
+        <composite:attribute name="new" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="list"  
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+       
+      <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
+                <b:commandButton  iconAwesome="fa-eraser"         
+                                  rendered="#{cc.attrs.renderednew}"  
+                                  look="success"
+                                  title="#{app['button.clear']}"
+                                  action="#{cc.attrs.new}"  update=":form:content" > 
+                    <f:ajax />
+                </b:commandButton>
+
+
+
+                <b:commandButton rendered="#{cc.attrs.renderedsave}"                          
+                              
+                                 iconAwesome="fa-floppy-o"
+                                 title="#{app['button.save']}"
+                                 look="primary"
+                                 action="#{cc.attrs.save}" 
+                                 update=":form:content" /> 
+
+
+                <b:commandButton immediate="true"
+                                 look="primary"
+                                 iconAwesome="fa-share" 
+
+
+                                 rendered="#{cc.attrs.rendererList}" 
+                                 title="#{app['button.search']}" 
+                                 action="#{cc.attrs.list}"/>
+
+
+
+
+            </b:panelGrid>
+      
+    </composite:implementation>
+
+</html>
