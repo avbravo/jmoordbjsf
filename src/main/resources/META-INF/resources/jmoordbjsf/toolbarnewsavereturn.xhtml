@@ -33,6 +33,15 @@
 
        
       <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
+          
+            <b:commandButton rendered="#{cc.attrs.renderedsave}"                          
+                              
+                                 iconAwesome="fa-floppy-o"
+                                 title="#{app['button.save']}"
+                                 look="primary"
+                                 action="#{cc.attrs.save}" 
+                                 update=":form:content" /> 
+            
                 <b:commandButton  iconAwesome="fa-eraser"         
                                   rendered="#{cc.attrs.renderednew}"  
                                   look="success"
@@ -43,13 +52,7 @@
 
 
 
-                <b:commandButton rendered="#{cc.attrs.renderedsave}"                          
-                              
-                                 iconAwesome="fa-floppy-o"
-                                 title="#{app['button.save']}"
-                                 look="primary"
-                                 action="#{cc.attrs.save}" 
-                                 update=":form:content" /> 
+              
 
 
                 <b:commandButton immediate="true"
