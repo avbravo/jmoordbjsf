@@ -4,39 +4,34 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:composite="http://java.sun.com/jsf/composite"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <composite:interface >
 
+        <composite:attribute name="controller" type="java.lang.Object"/> 
 
+          <composite:attribute name="sizeOfPage" default="25" />
         <composite:attribute name="page" />
         <composite:attribute name="rowPage" default="25" />
+        
+        <composite:attribute name="pages" type="java.util.List" />
+        
         <composite:attribute name="skip" />
         <composite:attribute name="renderednew" default="true"/>
         <composite:attribute name="renderedClear" default="true"/>
         <composite:attribute name="renderedPrint" default="true"/>
-        <!--        <composite:attribute name="param" default="" />
-                <composite:attribute name="paramvalue" default="" />-->
-        <composite:attribute name="pages" type="java.util.List" />
 
-
-        <composite:attribute name="clear" 
-                             method-signature="java.lang.String action()" />
-
-        <composite:attribute name="first" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="back" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="next" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="last" 
-                             method-signature="java.lang.String action()" />
-        <!--        <composite:attribute name="listener" 
-                                     method-signature="java.lang.String action()" />-->
+        <composite:attribute name="clear"  default="clear" />
+        <composite:attribute name="first" default="first"/>
+        <composite:attribute name="back" default="back" />
+        <composite:attribute name="next" default="next" />
+        <composite:attribute name="last" default="last" />
         <composite:attribute name="new" 
                              method-signature="java.lang.String action()" />
 
-        <composite:attribute name="printAll" 
-                             method-signature="java.lang.String action()" />
+
+        <composite:attribute name="printAll" default="printAll" />
 
 
     </composite:interface>
@@ -51,29 +46,45 @@
                               name="remoteshowall" />
             <p:remoteCommand  update=":form:content"
                               name="remotecontent" />
-       
-            
-            
-            <b:commandButton   iconAwesome="fa-caret-left" 
-                               icon="fa fa-save"
-                             styleClass="ui-priority-primary"
+
+ <b:commandButton   iconAwesome="fa-step-backward" 
+                               styleClass="ui-priority-primary"
                                look="primary"
                                oncomplete="remoteshowall();"
-                               action="#{cc.attrs.back}"
-                               update=":form:dataTable " /> 
+                               action="#{cc.attrs.controller[cc.attrs.first]}"
+                               update=":form:dataTable " > 
+               
+            </b:commandButton>
+
+
+            <b:commandButton   iconAwesome="fa-caret-left" 
+                               styleClass="ui-priority-primary"
+                               look="primary"
+                               oncomplete="remoteshowall();"
+                               action="#{cc.attrs.controller[cc.attrs.back]}"
+                               update=":form:dataTable " > 
+                <f:attribute name="page" value="#{cc.attrs.page}"/>
+            </b:commandButton>
+
             <b:commandButton   iconAwesome="fa-play"  
                                oncomplete="remoteshowall();"
-                               action="#{cc.attrs.next}" 
+                               action="#{cc.attrs.controller[cc.attrs.next]}" 
                                look="primary"
-                               update=":form:dataTable " /> 
+                               update=":form:dataTable " > 
+                <f:attribute name="page" value="#{cc.attrs.page}"/>
+                <f:attribute name="sizeOfPage" value="#{cc.attrs.sizeOfPage}"/>
+            </b:commandButton>
 
             <b:commandButton  iconAwesome="fa-step-forward"  
                               oncomplete="remoteshowall();"
                               look="primary"
-                              action="#{cc.attrs.last}"  
-                              update=":form:dataTable " /> 
+                              action="#{cc.attrs.controller[cc.attrs.last]}"  
+                              update=":form:dataTable " > 
+                        <f:attribute name="page" value="#{cc.attrs.page}"/>
+                <f:attribute name="sizeOfPage" value="#{cc.attrs.sizeOfPage}"/>
+            </b:commandButton>
 
-            <b:selectOneMenu id="pages"
+           <b:selectOneMenu id="pages"
                              
                              value="#{cc.attrs.page}"                                                  
                              colMd="1"
@@ -100,14 +111,14 @@
             <b:commandButton iconAwesome="fa-print"                                                                                                         
                              title="#{app['button.print']}"    
                              rendered="#{cc.attrs.renderedPrint}"  
-                             action="#{cc.attrs.printAll}" 
+                             action="#{cc.attrs.controller[cc.attrs.printAll]}"  
                              ajax="false"
                              look="primary"
                              style="width:60px"/> 
 
 
             <b:commandButton  iconAwesome="fa-list-alt"                                                
-                              action="#{cc.attrs.clear}"    
+                              action="#{cc.attrs.controller[cc.attrs.clear]}"     
                               rendered="#{cc.attrs.renderedClear}"    
                               look="primary"
                               title="#{app['button.all']}"
@@ -117,7 +128,7 @@
                 <f:ajax />
             </b:commandButton>
 
-           <b:selectOneMenu colMd="1"
+             <b:selectOneMenu colMd="1"
                              value="#{cc.attrs.rowPage}"
                              onchange="#{cc.attrs.skip}"
                               oncomplete="remoteshowall();"
