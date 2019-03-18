@@ -3,25 +3,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:composite="http://java.sun.com/jsf/composite"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
 
         <composite:attribute name="rendered" />
-        <composite:attribute name="save" 
-                             method-signature="java.lang.String action()" />
+        <composite:attribute name="save"  default="save" />
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="entity" type="java.lang.Object"/> 
+        <composite:attribute name="primarykeyvalue" type="java.lang.Object"/> 
+        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
+        <composite:attribute name="fieldsecondaryname" default="" type="java.lang.String"/> 
+        <composite:attribute name="fieldsecondaryvalue" default="" type="java.lang.Object"/> 
 
 
     </composite:interface>
     <composite:implementation>
 
+       
         <b:commandButton rendered="#{cc.attrs.rendered}"                          
                          value="#{app['button.save']}"
                          iconAwesome="fa-floppy-o"
                          title="#{app['button.save']}"
-                        look="primary"
-                         action="#{cc.attrs.save}" 
-                         update=":form:content" /> 
+                         look="primary"
+                         action="#{cc.attrs.controller[cc.attrs.save]}"
+                         update=":form:content" > 
+            <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+            <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+            <f:attribute name="primarykeyvalue" value="#{cc.attrs.primarykeyvalue}"/>
+            <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+            <f:attribute name="fieldsecondarykeyname" value="#{cc.attrs.fieldsecondaryname}"/>
+            <f:attribute name="fieldsecondarykeyvalue" value="#{cc.attrs.fieldsecondaryvalue}"/>
+
+        </b:commandButton>
 
 
 
