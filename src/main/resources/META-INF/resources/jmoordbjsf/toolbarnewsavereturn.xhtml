@@ -15,18 +15,17 @@
         <composite:attribute name="rendererList" default="true" />
         <composite:attribute name="renderedsave" default="true" />
         <composite:attribute name="renderednew" default="true"/>
-     
-        <composite:attribute name="save" 
-                             method-signature="java.lang.String action()" />
-
-
-        <composite:attribute name="new" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="list"  
-                             method-signature="java.lang.String action()" />
-
-
-    </composite:interface>
+        
+        
+         <composite:attribute name="save"  default="save" />
+       <composite:attribute name="internalPrepareNew" default="internalPrepareNew" />
+       <composite:attribute name="internalPrepareGoList" default="internalPrepareGoList" />
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="entity" type="java.lang.Object"/> 
+        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
+  
+     </composite:interface>
     <composite:implementation>
 
 
@@ -39,14 +38,15 @@
                                  iconAwesome="fa-floppy-o"
                                  title="#{app['button.save']}"
                                  look="primary"
-                                 action="#{cc.attrs.save}" 
+                                 action="#{cc.attrs.controller[cc.attrs.save]}"
                                  update=":form:content" /> 
             
                 <b:commandButton  iconAwesome="fa-eraser"         
                                   rendered="#{cc.attrs.renderednew}"  
                                   look="success"
                                   title="#{app['button.clear']}"
-                                  action="#{cc.attrs.new}"  update=":form:content" > 
+                                  action="#{cc.attrs.controller[cc.attrs.internalPrepareNew]}" 
+                                  update=":form:content" > 
                     <f:ajax />
                 </b:commandButton>
 
@@ -62,7 +62,7 @@
 
                                  rendered="#{cc.attrs.rendererList}" 
                                  title="#{app['button.search']}" 
-                                 action="#{cc.attrs.list}"/>
+                                 action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}" />
 
 
 
