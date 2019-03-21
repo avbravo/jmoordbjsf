@@ -14,15 +14,20 @@
         <composite:attribute name="renderedList" />
 
 
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="entity" type="java.lang.Object"/> 
+        <composite:attribute name="services" type="java.lang.Object"/> 
+        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        <composite:attribute name="rendered" />
+        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
+        <composite:attribute name="edit"  default="edit" />
+        <composite:attribute name="internalCallDeleteOfView"  default="internalCallDeleteOfView" />
+        <composite:attribute name="print"  default="print" />
+         <composite:attribute name="internalPrepareGoList" default="internalPrepareGoList" />
 
-        <composite:attribute name="url" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="edit" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="delete" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="print" 
-                             method-signature="java.lang.String action()" />
+
+      
+
 
 
     </composite:interface>
@@ -35,10 +40,17 @@
                              iconAwesome="fa-edit" 
                              title="#{app['button.edit']}"  
                              value="#{app['button.edit']}"  
-                             process=":form:content" 
-                             action="#{cc.attrs.edit}" 
+                             process=":form:content"                             
+                             action="#{cc.attrs.controller[cc.attrs.edit]}"
                              look="primary"
-                             update=":form:content" /> 
+                             update=":form:content" > 
+                  <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                        <f:attribute name="services" value="#{cc.attrs.services}"/>
+                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+            </b:commandButton>
+
             <b:dropMenu value="#{app['button.delete']}" iconAwesome="fa-trash-o" rendered="#{cc.attrs.renderedDelete}">
                 <b:panel title="#{app['info.doyouwantdelete']}" >
                     <b:button value="#{app['button.no']}" look="success" />
@@ -48,9 +60,14 @@
                                      value="#{app['button.yes']}" 
                                      title="#{app['button.delete']}" 
                                      process=":form:content" 
-                                     action="#{cc.attrs.delete}" 
-                                     update=":form:content" > 
+                                     action="#{cc.attrs.controller[cc.attrs.internalCallDeleteOfView]}"
 
+                                     update=":form:content" > 
+                        <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                        <f:attribute name="services" value="#{cc.attrs.services}"/>
+                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                        <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
                     </b:commandButton>
                 </b:panel>
             </b:dropMenu>
@@ -62,7 +79,7 @@
                              value="#{app['button.print']}"
                              title="#{app['button.print']}" 
                              process=":form:content"
-                             action="#{cc.attrs.print}" 
+                            action="#{cc.attrs.controller[cc.attrs.print]}"
                              ajax="false"
                              look="primary"
                              /> 
@@ -75,8 +92,13 @@
                              value="#{app['button.return']}" 
                              title="#{app['button.return']}" 
                              look="primary"
-                             action="#{cc.attrs.url}"/>
-
+                            action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}">
+                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                        <f:attribute name="services" value="#{cc.attrs.services}"/>
+                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+            </b:commandButton>
 
         </b:panelGrid>
 
