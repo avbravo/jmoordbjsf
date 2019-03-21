@@ -13,7 +13,7 @@
         <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
         <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
 
-    
+
 
         <composite:attribute name="rendererList" default="true" />
         <composite:attribute name="renderedSave" default="true" />
@@ -42,7 +42,7 @@
                              update=":form:content" > 
                 <f:attribute name="controller" value="#{cc.attrs.controller}"/>
                 <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
                 <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
             </b:commandButton>
 
@@ -52,8 +52,9 @@
                               title="#{app['button.clear']}"
                               action="#{cc.attrs.controller[cc.attrs.internalPrepareNew]}" 
                               update=":form:content" > 
+                 <f:attribute name="controller" value="#{cc.attrs.controller}"/>
                 <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
                 <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
             </b:commandButton>
 
@@ -70,9 +71,10 @@
                              rendered="#{cc.attrs.rendererList}" 
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}" >
-                  <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-            <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-            <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                               <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
             </b:commandButton>
 
 
