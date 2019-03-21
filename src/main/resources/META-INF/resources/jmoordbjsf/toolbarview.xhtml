@@ -12,7 +12,7 @@
         <composite:attribute name="renderedEdit" />
         <composite:attribute name="renderedDelete" />
         <composite:attribute name="renderedList" />
-               
+
 
 
         <composite:attribute name="url" 
@@ -55,26 +55,26 @@
                 </b:panel>
             </b:dropMenu>
 
-           
-            
+
+
             <b:commandButton iconAwesome="fa-print" 
-                                 rendered="#{cc.attrs.renderedList}"
-                                          value="#{app['button.print']}"
-                                         title="#{app['button.print']}" 
-                                         process=":form:content"
-                                         action="#{cc.attrs.print}" 
-                                         ajax="false"
-                                         look="primary"
-                                       /> 
-         
-            
-            
+                             rendered="#{cc.attrs.renderedList}"
+                             value="#{app['button.print']}"
+                             title="#{app['button.print']}" 
+                             process=":form:content"
+                             action="#{cc.attrs.print}" 
+                             ajax="false"
+                             look="primary"
+                             /> 
+
+
+
             <b:commandButton immediate="true"
                              iconAwesome="fa-share" 
 
                              value="#{app['button.return']}" 
                              title="#{app['button.return']}" 
-look="primary"
+                             look="primary"
                              action="#{cc.attrs.url}"/>
 
 

@@ -8,67 +8,77 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <composite:interface >
 
-
-        
-        <composite:attribute name="columns" default="1" />
-     
-        <composite:attribute name="rendererList" default="true" />
-        <composite:attribute name="renderedsave" default="true" />
-        <composite:attribute name="renderednew" default="true"/>
-        
-        
-         <composite:attribute name="save"  default="save" />
-       <composite:attribute name="internalPrepareNew" default="internalPrepareNew" />
-       <composite:attribute name="internalPrepareGoList" default="internalPrepareGoList" />
         <composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="entity" type="java.lang.Object"/> 
         <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
         <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
-  
-     </composite:interface>
+
+    
+
+        <composite:attribute name="rendererList" default="true" />
+        <composite:attribute name="renderedSave" default="true" />
+        <composite:attribute name="renderedNew" default="true"/>
+
+
+        <composite:attribute name="save"  default="save" />
+        <composite:attribute name="internalPrepareNew" default="internalPrepareNew" />
+        <composite:attribute name="internalPrepareGoList" default="internalPrepareGoList" />
+
+
+    </composite:interface>
     <composite:implementation>
 
 
 
-       
-      <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
-          
-            <b:commandButton rendered="#{cc.attrs.renderedsave}"                          
-                              
-                                 iconAwesome="fa-floppy-o"
-                                 title="#{app['button.save']}"
-                                 look="primary"
-                                 action="#{cc.attrs.controller[cc.attrs.save]}"
-                                 update=":form:content" /> 
-            
-                <b:commandButton  iconAwesome="fa-eraser"         
-                                  rendered="#{cc.attrs.renderednew}"  
-                                  look="success"
-                                  title="#{app['button.clear']}"
-                                  action="#{cc.attrs.controller[cc.attrs.internalPrepareNew]}" 
-                                  update=":form:content" > 
-                    <f:ajax />
-                </b:commandButton>
 
+        <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
 
+            <b:commandButton rendered="#{cc.attrs.renderedSave}"                          
 
-              
+                             iconAwesome="fa-floppy-o"
+                             title="#{app['button.save']}"
+                             look="primary"
+                             action="#{cc.attrs.controller[cc.attrs.save]}"
+                             update=":form:content" > 
+                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+            </b:commandButton>
 
-
-                <b:commandButton immediate="true"
-                                 look="primary"
-                                 iconAwesome="fa-share" 
-
-
-                                 rendered="#{cc.attrs.rendererList}" 
-                                 title="#{app['button.search']}" 
-                                 action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}" />
+            <b:commandButton  iconAwesome="fa-eraser"         
+                              rendered="#{cc.attrs.renderedNew}"  
+                              look="success"
+                              title="#{app['button.clear']}"
+                              action="#{cc.attrs.controller[cc.attrs.internalPrepareNew]}" 
+                              update=":form:content" > 
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+            </b:commandButton>
 
 
 
 
-            </b:panelGrid>
-      
+
+
+            <b:commandButton immediate="true"
+                             look="primary"
+                             iconAwesome="fa-share" 
+
+
+                             rendered="#{cc.attrs.rendererList}" 
+                             title="#{app['button.search']}" 
+                             action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}" >
+                  <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+            <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+            <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+            </b:commandButton>
+
+
+
+        </b:panelGrid>
+
     </composite:implementation>
 
 </html>
