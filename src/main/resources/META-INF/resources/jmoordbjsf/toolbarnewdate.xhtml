@@ -8,9 +8,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <composite:interface >
 
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="entity" type="java.lang.Object"/> 
+        <composite:attribute name="services" type="java.lang.Object"/> 
+        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
 
         <composite:attribute name="label" />
-         <composite:attribute name="title" default="" />
+        <composite:attribute name="title" default="" />
         <composite:attribute name="value" />
         <composite:attribute name="pattern" default="dd/MM/yyyy" />
         <composite:attribute name="columns" default="1" />
@@ -21,12 +26,10 @@
         <composite:attribute name="rendererList" />
 
 
-        <composite:attribute name="isnew" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="new" 
-                             method-signature="java.lang.String action()" />
-        <composite:attribute name="list"  
-                             method-signature="java.lang.String action()" />
+        <composite:attribute name="validateNew" default="validateNew" />
+
+        <composite:attribute name="prepareNew" default="prepareNew" />
+        <composite:attribute name="prepareGoList" default="prepareGoList" />
 
 
     </composite:interface>
@@ -36,14 +39,19 @@
 
         <p:remoteCommand  update=":form:content :form:panel"
                           name="remoteid" 
-                         />
+                          />
         <b:panel title="#{cc.attrs.title}" look="primary">
             <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="2,1,8,1"> 
                 <b:commandButton  iconAwesome="fa-eraser"         
                                   look="success"
                                   title="#{app['button.clear']}"
-                                  action="#{cc.attrs.new}"  update=":form:content" > 
+                                  action="#{cc.attrs.controller[cc.attrs.prepareNew]}"  update=":form:content" > 
                     <f:ajax />
+                    <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                    <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                    <f:attribute name="services" value="#{cc.attrs.services}"/>
+                    <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                    <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
                 </b:commandButton>
                 <p:outputLabel value="#{cc.attrs.label}"/>
 
@@ -51,20 +59,31 @@
                     value="#{cc.attrs.value}"
                     required="false" 
                     pattern="#{cc.attrs.pattern}"
-                     disabled="#{cc.attrs.disabled}" 
+                    disabled="#{cc.attrs.disabled}" 
                     selectOtherMonths="true"
                     navigator="true"                    
                     >
                     <p:ajax event="dateSelect" 
-                            listener="#{cc.attrs.isnew}"
+                            listener="#{cc.attrs.controller[cc.attrs.validateNew]}"
                             update=":form:content :form:panel" />
+                    <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                    <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                    <f:attribute name="services" value="#{cc.attrs.services}"/>
+                    <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                    <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
                 </p:calendar>
                 <b:commandButton immediate="true"
                                  look="primary"
                                  iconAwesome="fa-share" 
                                  rendered="#{cc.attrs.rendererList}" 
                                  title="#{app['button.search']}" 
-                                 action="#{cc.attrs.list}"/>                
+                                 action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">                
+                    <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                    <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                    <f:attribute name="services" value="#{cc.attrs.services}"/>
+                    <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                    <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                </b:commandButton>
 
             </b:panelGrid>
         </b:panel>
