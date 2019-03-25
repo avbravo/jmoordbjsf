@@ -27,9 +27,9 @@
 
         <composite:attribute name="isnew" 
                              method-signature="java.lang.String action()" />
-        <composite:attribute name="new" 
-                             method-signature="java.lang.String action()" />
+ 
        <composite:attribute name="prepareGoList" default="prepareGoList" />
+       <composite:attribute name="prepareNew" default="prepareNew" />
     </composite:interface>
     <composite:implementation>
 
@@ -59,7 +59,9 @@
                         <b:commandButton  iconAwesome="fa-eraser"         
                                           look="success"
                                           title="#{app['button.clear']}"
-                                          action="#{cc.attrs.new}"  update=":form:content" > 
+                                          
+                                          action="#{cc.attrs.controller[cc.attrs.prepareNew]}"
+                                          update=":form:content" > 
                             <f:ajax />
                             <f:attribute name="controller" value="#{cc.attrs.controller}"/>
                             <f:attribute name="entity" value="#{cc.attrs.entity}"/>
