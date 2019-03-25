@@ -23,10 +23,10 @@
         <composite:attribute name="edit"  default="edit" />
         <composite:attribute name="delete"  default="delete" />
         <composite:attribute name="print"  default="print" />
-         <composite:attribute name="internalPrepareGoList" default="internalPrepareGoList" />
+        <composite:attribute name="prepareGoList" default="prepareGoList" />
 
+        <composite:attribute name="url" default=""/> 
 
-      
 
 
 
@@ -44,11 +44,12 @@
                              action="#{cc.attrs.controller[cc.attrs.edit]}"
                              look="primary"
                              update=":form:content" > 
-                  <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                        <f:attribute name="services" value="#{cc.attrs.services}"/>
-                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="services" value="#{cc.attrs.services}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
                 <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
             <b:dropMenu value="#{app['button.delete']}" iconAwesome="fa-trash-o" rendered="#{cc.attrs.renderedDelete}">
@@ -68,6 +69,7 @@
                         <f:attribute name="services" value="#{cc.attrs.services}"/>
                         <f:attribute name="repository" value="#{cc.attrs.repository}"/>
                         <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                        <f:attribute name="url" value="#{cc.attrs.url}"/>
                     </b:commandButton>
                 </b:panel>
             </b:dropMenu>
@@ -79,17 +81,18 @@
                              value="#{app['button.print']}"
                              title="#{app['button.print']}" 
                              process=":form:content"
-                            action="#{cc.attrs.controller[cc.attrs.print]}"
+                             action="#{cc.attrs.controller[cc.attrs.print]}"
                              ajax="false"
                              look="primary"
-                            > 
-                   <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                        <f:attribute name="services" value="#{cc.attrs.services}"/>
-                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-                        <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
-                    </b:commandButton>
-  
+                             > 
+                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="services" value="#{cc.attrs.services}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                <f:attribute name="url" value="#{cc.attrs.url}"/>
+            </b:commandButton>
+
 
 
 
@@ -99,12 +102,13 @@
                              value="#{app['button.return']}" 
                              title="#{app['button.return']}" 
                              look="primary"
-                            action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}">
+                             action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
                 <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                        <f:attribute name="services" value="#{cc.attrs.services}"/>
-                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="services" value="#{cc.attrs.services}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
                 <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
         </b:panelGrid>

@@ -13,7 +13,7 @@
         <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
         <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
 
-
+<composite:attribute name="url" default=""/> 
 
         <composite:attribute name="rendererList" default="true" />
         <composite:attribute name="renderedSave" default="true" />
@@ -22,7 +22,7 @@
 
         <composite:attribute name="save"  default="save" />
         <composite:attribute name="internalPrepareNew" default="internalPrepareNew" />
-        <composite:attribute name="internalPrepareGoList" default="internalPrepareGoList" />
+        <composite:attribute name="prepareGoList" default="prepareGoList" />
 
 
     </composite:interface>
@@ -70,10 +70,11 @@
 
                              rendered="#{cc.attrs.rendererList}" 
                              title="#{app['button.search']}" 
-                             action="#{cc.attrs.controller[cc.attrs.internalPrepareGoList]}" >
+                             action="#{cc.attrs.controller[cc.attrs.prepareGoList]}" >
                 <f:attribute name="controller" value="#{cc.attrs.controller}"/>
                 <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                               <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                  <f:attribute name="url" value="#{cc.attrs.url}"/>
                 <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
             </b:commandButton>
 

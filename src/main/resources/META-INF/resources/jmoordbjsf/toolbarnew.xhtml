@@ -8,6 +8,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <composite:interface >
 
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="entity" type="java.lang.Object"/> 
+        <composite:attribute name="services" type="java.lang.Object"/> 
+        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
 
         <composite:attribute name="label" />
         <composite:attribute name="title" default="" />
@@ -18,16 +23,13 @@
         <composite:attribute name="value2" default=""/>
         <composite:attribute name="disabled" default="false" />
         <composite:attribute name="rendererList" />
-
+        <composite:attribute name="url" default=""/> 
 
         <composite:attribute name="isnew" 
                              method-signature="java.lang.String action()" />
         <composite:attribute name="new" 
                              method-signature="java.lang.String action()" />
-        <composite:attribute name="list"  
-                             method-signature="java.lang.String action()" />
-
-
+       <composite:attribute name="prepareGoList" default="prepareGoList" />
     </composite:interface>
     <composite:implementation>
 
@@ -41,25 +43,29 @@
 
                 <p:outputLabel value="#{cc.attrs.label}"/>
                 <b:inputText       
-                     style="text-transform: uppercase"
+                    style="text-transform: uppercase"
                     placeholder="#{app['info.ingresenuevodato']}"
-                             value="#{cc.attrs.value}" 
-                             disabled="#{cc.attrs.disabled}" 
-                             readonly="#{cc.attrs.readonly}" 
-                             required="false"
-                             requiredMessage="#{cc.attrs.label} #{app['info.required']}"
-                             immediate="true"
-                             onkeypress="if (event.keyCode == 13) {
-                                         remoteid();
-                                         return false;
-                                     }">
+                    value="#{cc.attrs.value}" 
+                    disabled="#{cc.attrs.disabled}" 
+                    readonly="#{cc.attrs.readonly}" 
+                    required="false"
+                    requiredMessage="#{cc.attrs.label} #{app['info.required']}"
+                    immediate="true"
+                    onkeypress="if (event.keyCode == 13) {
+                                remoteid();
+                                return false;
+                            }">
                     <f:facet name="prepend">
                         <b:commandButton  iconAwesome="fa-eraser"         
-                                         
                                           look="success"
                                           title="#{app['button.clear']}"
                                           action="#{cc.attrs.new}"  update=":form:content" > 
-                                <f:ajax />
+                            <f:ajax />
+                            <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                            <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                            <f:attribute name="services" value="#{cc.attrs.services}"/>
+                            <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                            <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
                         </b:commandButton>
 
                     </f:facet>
@@ -67,18 +73,24 @@
                         <b:commandButton immediate="true"
                                          look="primary"
                                          iconAwesome="fa-share" 
-
-
                                          rendered="#{cc.attrs.rendererList}" 
                                          title="#{app['button.search']}" 
-                                         action="#{cc.attrs.list}"/>
+                                        action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
+                            
+                            <f:attribute name="url" value="#{cc.attrs.url}"/>
+                            <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                            <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                            <f:attribute name="services" value="#{cc.attrs.services}"/>
+                            <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                            <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                        </b:commandButton>
 
                     </f:facet>
                 </b:inputText>
 
                 <p:outputLabel  value="#{cc.attrs.label2}" />
-                    <p:outputLabel value="#{cc.attrs.value2}"/>
-                
+                <p:outputLabel value="#{cc.attrs.value2}"/>
+
 
 
             </b:panelGrid>
