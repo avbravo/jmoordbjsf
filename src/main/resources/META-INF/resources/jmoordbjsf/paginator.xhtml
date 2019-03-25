@@ -136,6 +136,11 @@
                               oncomplete="remoteshowall()"
                               > 
                 <f:ajax />
+                  <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="services" value="#{cc.attrs.services}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
             <b:selectOneMenu colMd="1"
