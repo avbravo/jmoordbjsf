@@ -11,20 +11,22 @@
 
         <composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="entity" type="java.lang.Object"/> 
-
+        <f:attribute name="services" value="#{cc.attrs.services}"/>
+        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <composite:attribute name="url" default=""/> 
         <composite:attribute name="page" />
         <composite:attribute name="rowPage" default="25" />
 
         <composite:attribute name="pages" type="java.util.List" />
 
         <composite:attribute name="skip" />
-        <composite:attribute name="internalPrepareGoNew" default="internalPrepareGoNew" />
+        <composite:attribute name="prepareGoNew" default="prepareGoNew" />
         <composite:attribute name="renderedNew" default="true"/>
         <composite:attribute name="renderedClear" default="true"/>
         <composite:attribute name="renderedPrint" default="true"/>
 
 
-   
+
         <composite:attribute name="clear"  default="clear" />
         <composite:attribute name="first" default="first"/>
         <composite:attribute name="back" default="back" />
@@ -50,7 +52,7 @@
             <p:remoteCommand  update=":form:content"
                               name="remotecontent" />
 
-           
+
 
 
 
@@ -79,7 +81,7 @@
                                look="primary"
                                update=":form:dataTable " > 
                 <f:attribute name="page" value="#{cc.attrs.page}"/>
-      
+
             </b:commandButton>
 
             <b:commandButton  iconAwesome="fa-step-forward"  
@@ -88,7 +90,7 @@
                               action="#{cc.attrs.controller[cc.attrs.last]}"  
                               update=":form:dataTable " > 
                 <f:attribute name="page" value="#{cc.attrs.page}"/>
-               
+
             </b:commandButton>
 
             <b:selectOneMenu id="pages"
@@ -105,12 +107,16 @@
             </b:selectOneMenu> 
 
             <b:commandButton iconAwesome="fa-plus"  
-                             action="#{cc.attrs.controller[cc.attrs.internalPrepareGoNew]}"  
+                             action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
                              look="primary"
                              rendered="#{cc.attrs.renderedNew}"
                              oncomplete="remotecontent()"
                              > 
- <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
+                <f:attribute name="services" value="#{cc.attrs.services}"/>
+                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
 
