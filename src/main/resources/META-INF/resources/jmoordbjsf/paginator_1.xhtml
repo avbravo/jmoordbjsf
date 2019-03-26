@@ -67,7 +67,7 @@
                                oncomplete="remoteshowall();"
                                action="#{cc.attrs.controller[cc.attrs.back]}"
                                update=":form:dataTable " > 
-           
+                <f:attribute name="page" value="#{cc.attrs.page}"/>
             </b:commandButton>
 
             <b:commandButton   iconAwesome="fa-play"  
@@ -75,7 +75,7 @@
                                action="#{cc.attrs.controller[cc.attrs.next]}" 
                                look="primary"
                                update=":form:dataTable " > 
-             
+                <f:attribute name="page" value="#{cc.attrs.page}"/>
 
             </b:commandButton>
 
@@ -84,7 +84,7 @@
                               look="primary"
                               action="#{cc.attrs.controller[cc.attrs.last]}"  
                               update=":form:dataTable " > 
-             
+                <f:attribute name="page" value="#{cc.attrs.page}"/>
 
             </b:commandButton>
 
