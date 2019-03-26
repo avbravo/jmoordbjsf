@@ -10,9 +10,7 @@
     <composite:interface >
 
         <composite:attribute name="controller" type="java.lang.Object"/> 
-        <composite:attribute name="entity" type="java.lang.Object"/> 
-        <f:attribute name="services" value="#{cc.attrs.services}"/>
-        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+
         <composite:attribute name="url" default=""/> 
         <composite:attribute name="page" />
         <composite:attribute name="rowPage" default="25" />
@@ -107,12 +105,8 @@
                              action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
                              look="primary"
                              rendered="#{cc.attrs.renderedNew}"
-                             oncomplete="remotecontent()"
-                             > 
-                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="services" value="#{cc.attrs.services}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                             oncomplete="remotecontent()">
+
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
@@ -136,10 +130,7 @@
                               oncomplete="remoteshowall()"
                               > 
                 <f:ajax />
-                  <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="services" value="#{cc.attrs.services}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 

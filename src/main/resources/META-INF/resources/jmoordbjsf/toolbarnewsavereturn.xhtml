@@ -8,11 +8,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <composite:interface >
 
-        <composite:attribute name="controller" type="java.lang.Object"/> 
-        <composite:attribute name="entity" type="java.lang.Object"/> 
-        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
-        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
-
+     
+<composite:attribute name="controller" type="java.lang.Object"/> 
 <composite:attribute name="url" default=""/> 
 
         <composite:attribute name="rendererList" default="true" />
@@ -52,10 +49,7 @@
                               title="#{app['button.clear']}"
                               action="#{cc.attrs.controller[cc.attrs.prepareNew]}" 
                               update=":form:content" > 
-                 <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                
             </b:commandButton>
 
 
@@ -71,11 +65,9 @@
                              rendered="#{cc.attrs.rendererList}" 
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.controller[cc.attrs.prepareGoList]}" >
-                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+              
                   <f:attribute name="url" value="#{cc.attrs.url}"/>
-                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+              
             </b:commandButton>
 
 

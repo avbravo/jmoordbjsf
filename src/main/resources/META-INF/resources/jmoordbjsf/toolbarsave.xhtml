@@ -7,14 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
-
+<composite:attribute name="controller" type="java.lang.Object"/> 
        
         <composite:attribute name="save"  default="save" />
-        <composite:attribute name="controller" type="java.lang.Object"/> 
-        <composite:attribute name="entity" type="java.lang.Object"/> 
-        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        
          <composite:attribute name="rendered" />
-        <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
+        
 
 
     </composite:interface>
@@ -28,11 +26,7 @@
                          look="primary"
                          action="#{cc.attrs.controller[cc.attrs.save]}"
                          update=":form:content" > 
-            <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-            <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-            <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-            <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
-
+           
 
         </b:commandButton>
 

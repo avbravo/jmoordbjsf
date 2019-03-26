@@ -8,16 +8,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
-
+<composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="renderedEdit" />
         <composite:attribute name="renderedDelete" />
         <composite:attribute name="renderedList" />
 
 
-        <composite:attribute name="controller" type="java.lang.Object"/> 
-        <composite:attribute name="entity" type="java.lang.Object"/> 
-        <composite:attribute name="services" type="java.lang.Object"/> 
-        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
         <composite:attribute name="rendered" />
         <composite:attribute name="searchbyfieldsecond" default="false" type="java.lang.Boolean"/> 
         <composite:attribute name="edit"  default="edit" />
@@ -44,11 +40,7 @@
                              action="#{cc.attrs.controller[cc.attrs.edit]}"
                              look="primary"
                              update=":form:content" > 
-                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="services" value="#{cc.attrs.services}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+               
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
@@ -64,11 +56,7 @@
                                      action="#{cc.attrs.controller[cc.attrs.delete]}"
 
                                      update=":form:content" > 
-                        <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                        <f:attribute name="services" value="#{cc.attrs.services}"/>
-                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-                        <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                       
                         <f:attribute name="url" value="#{cc.attrs.url}"/>
                     </b:commandButton>
                 </b:panel>
@@ -85,11 +73,7 @@
                              ajax="false"
                              look="primary"
                              > 
-                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="services" value="#{cc.attrs.services}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 
@@ -103,11 +87,7 @@
                              title="#{app['button.return']}" 
                              look="primary"
                              action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
-                <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                <f:attribute name="services" value="#{cc.attrs.services}"/>
-                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
-                <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
+                
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
 

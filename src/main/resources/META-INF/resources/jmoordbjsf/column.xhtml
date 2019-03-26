@@ -7,16 +7,13 @@
       xmlns:b="http://bootsfaces.net/ui">
     <composite:interface >
         <composite:attribute name="controller" type="java.lang.Object"/> 
-        <composite:attribute name="entity" type="java.lang.Object"/> 
-        
-        <composite:attribute name="services" type="java.lang.Object"/> 
-        <composite:attribute name="repository" type="com.avbravo.jmoordb.mongodb.repository.Repository"/> 
+        <composite:attribute name="item" type="java.lang.Object"/> 
 
         <composite:attribute name="url" default=""/> 
         <composite:attribute name="rendered" default="true"/>
         <composite:attribute name="renderedEdit" default="true"/>
         <composite:attribute name="renderedDelete" default="true"/>
-      
+
         <composite:attribute name="deleteFromListxhtml"  default="deleteFromListxhtml" />
         <composite:attribute name="prepareView"  default="prepareView" />
 
@@ -35,12 +32,11 @@
                         immediate="true"
                         look="primary"
                         oncomplete="remoteid()"
-                         action= "#{cc.attrs.controller[cc.attrs.prepareView]}" 
-                         >
+                        action= "#{cc.attrs.controller[cc.attrs.prepareView]}" 
+                        >
+
                         <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                        <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                        <f:attribute name="services" value="#{cc.attrs.services}"/>
-                        <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                        <f:attribute name="item" value="#{cc.attrs.item}"/>
                         <f:attribute name="url" value="#{cc.attrs.url}"/>
                     </b:commandButton>
                 </p:column>
@@ -59,13 +55,11 @@
                                              title="#{app['button.delete']}" 
                                              oncomplete="remoteshowall();"
                                              process=":form:dataTable" 
-                                            
+
                                              action= "#{cc.attrs.controller[cc.attrs.deleteFromListxhtml]}" 
                                              update=":form:dataTable" > 
                                 <f:attribute name="controller" value="#{cc.attrs.controller}"/>
-                                <f:attribute name="entity" value="#{cc.attrs.entity}"/>
-                                <f:attribute name="services" value="#{cc.attrs.services}"/>
-                                <f:attribute name="repository" value="#{cc.attrs.repository}"/>
+                                <f:attribute name="item" value="#{cc.attrs.item}"/>
                                 <f:attribute name="url" value="#{cc.attrs.url}"/>
                             </b:commandButton>
                         </b:panel>
