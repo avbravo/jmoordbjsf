@@ -10,22 +10,21 @@
 
      <composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="label" />
-        <composite:attribute name="value" />
         <composite:attribute name="title" default="" />
+        <composite:attribute name="value" />
         <composite:attribute name="columns" default="1" />
         <composite:attribute name="readonly" default="false"/>
+        <composite:attribute name="lowercase" default="false"/>
         <composite:attribute name="label2" default="" />
         <composite:attribute name="value2" default=""/>
         <composite:attribute name="disabled" default="false" />
         <composite:attribute name="rendererList" />
+        <composite:attribute name="url" default=""/> 
 
-
-        <composite:attribute name="validateNew" default="validateNew" />
-
-        <composite:attribute name="prepareGoList" default="prepareGoList" />
-        <composite:attribute name="prepareNew" default="prepareNew" />
-
-
+     
+       <composite:attribute name="validateNew" default="validateNew" />
+       <composite:attribute name="prepareGoList" default="prepareGoList" />
+       <composite:attribute name="prepareNew" default="prepareNew" />
     </composite:interface>
     <composite:implementation>
 
@@ -34,14 +33,14 @@
         <p:remoteCommand  update=":form:content :form:panel"
                           name="remoteid" 
                           actionListener="#{cc.attrs.controller[cc.attrs.validateNew]}">
-            
+          
         </p:remoteCommand>
         <b:panel title="#{cc.attrs.title}" look="primary">
             <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="1,11"> 
 
                 <p:outputLabel value="#{cc.attrs.label}"/>
                 <b:inputText       
-
+                    style="#{cc.attrs.lowercase} ?text-transform: uppercase:''"
                     placeholder="#{app['info.ingresenuevodato']}"
                     value="#{cc.attrs.value}" 
                     disabled="#{cc.attrs.disabled}" 
@@ -55,13 +54,13 @@
                             }">
                     <f:facet name="prepend">
                         <b:commandButton  iconAwesome="fa-eraser"         
-
                                           look="success"
                                           title="#{app['button.clear']}"
+                                          
                                           action="#{cc.attrs.controller[cc.attrs.prepareNew]}"
                                           update=":form:content" > 
                             <f:ajax />
-                          
+                           
                         </b:commandButton>
 
                     </f:facet>
@@ -69,12 +68,12 @@
                         <b:commandButton immediate="true"
                                          look="primary"
                                          iconAwesome="fa-share" 
-
-
                                          rendered="#{cc.attrs.rendererList}" 
                                          title="#{app['button.search']}" 
-                                         action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
-                           
+                                        action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
+                            
+                            <f:attribute name="url" value="#{cc.attrs.url}"/>
+                            
                         </b:commandButton>
 
                     </f:facet>

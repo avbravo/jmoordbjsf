@@ -14,6 +14,7 @@
         <composite:attribute name="value" />
         <composite:attribute name="columns" default="1" />
         <composite:attribute name="readonly" default="false"/>
+        <composite:attribute name="lowercase" default="false"/>
         <composite:attribute name="label2" default="" />
         <composite:attribute name="value2" default=""/>
         <composite:attribute name="disabled" default="false" />
@@ -39,7 +40,7 @@
 
                 <p:outputLabel value="#{cc.attrs.label}"/>
                 <b:inputText       
-                    style="text-transform: uppercase"
+                    style="#{cc.attrs.lowercase} ?text-transform: uppercase:''"
                     placeholder="#{app['info.ingresenuevodato']}"
                     value="#{cc.attrs.value}" 
                     disabled="#{cc.attrs.disabled}" 
