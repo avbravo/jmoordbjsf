@@ -6,12 +6,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:b="http://bootsfaces.net/ui">
     <composite:interface >
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="item" type="java.lang.Object"/> 
 
-
+        <composite:attribute name="url" default=""/> 
         <composite:attribute name="rendered" default="true"/>
-        <composite:attribute name="edit" 
-                             method-signature="java.lang.String action()" />
-      
+        <composite:attribute name="renderedEdit" default="true"/>
+        <composite:attribute name="renderedDelete" default="true"/>
+
+        <composite:attribute name="deleteFromListxhtml"  default="deleteFromListxhtml" />
+        <composite:attribute name="prepareView"  default="prepareView" />
 
     </composite:interface>
     <composite:implementation>
@@ -24,17 +28,21 @@
                     <b:commandButton                 
                         style="margin-bottom:10px;"
                         iconAwesome="fa-edit" 
-                        rendered="#{cc.attrs.rendered}" 
                         title="#{app['button.edit']}"
                         immediate="true"
+                        look="primary"
                         oncomplete="remoteid()"
-                        action="#{cc.attrs.edit}">
+                        rendered="#{cc.attrs.renderedEdit}"
+                        action= "#{cc.attrs.controller[cc.attrs.prepareView]}" 
+                        >
 
+                        <f:attribute name="controller" value="#{cc.attrs.controller}"/>
+                        <f:attribute name="item" value="#{cc.attrs.item}"/>
+                        <f:attribute name="url" value="#{cc.attrs.url}"/>
                     </b:commandButton>
                 </p:column>
             </p:row>
-
-
+          
         </p:panelGrid>
 
     </composite:implementation>
