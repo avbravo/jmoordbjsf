@@ -34,6 +34,7 @@
 
                              iconAwesome="fa-floppy-o"
                              title="#{app['button.save']}"
+                             value="#{app['button.save']}"
                              look="primary"
                              action="#{cc.attrs.controller[cc.attrs.save]}"
                              update=":form:content" > 
@@ -46,26 +47,24 @@
             <b:commandButton  iconAwesome="fa-eraser"         
                               rendered="#{cc.attrs.renderedNew}"  
                               look="success"
+                              
+                              value= "#{app['button.clear']}"
                               title="#{app['button.clear']}"
                               action="#{cc.attrs.controller[cc.attrs.prepareNew]}" 
-                              update=":form:content" > 
-                
+                              update=":form:content" >                 
             </b:commandButton>
-
-
 
 
 
 
             <b:commandButton immediate="true"
                              look="primary"
+                             value= "#{app['button.search']}"
                              iconAwesome="fa-share" 
                              rendered="#{cc.attrs.rendererList}" 
                              title="#{app['button.search']}" 
-                             action="#{cc.attrs.controller[cc.attrs.prepareGoList]}" >
-              
-                  <f:attribute name="url" value="#{cc.attrs.url}"/>
-              
+                             action="#{cc.attrs.controller[cc.attrs.prepareGoList]}" >             
+                  <f:attribute name="url" value="#{cc.attrs.url}"/>              
             </b:commandButton>
 
 
