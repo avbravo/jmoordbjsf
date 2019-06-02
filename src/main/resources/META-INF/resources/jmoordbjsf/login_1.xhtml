@@ -59,9 +59,11 @@
                     <h:outputText value="#{cc.attrs.labelusername}"  />
                 </b:column>
                 <b:column medium-screen="9">
-                    <p:inputText id="username" value="#{cc.attrs.fieldusername}" placeholder="#{cc.attrs.labelusername}" >
-                      
-                    </p:inputText>
+                    <b:inputText id="username" value="#{cc.attrs.fieldusername}" placeholder="#{cc.attrs.labelusername}" >
+                        <f:facet name="prepend">
+                            <b:icon name="user" />
+                        </f:facet>
+                    </b:inputText>
                 </b:column>
 
             </b:row>
@@ -70,8 +72,11 @@
                     <h:outputText value="#{app['login.password']}" />
                 </b:column>
                 <b:column medium-screen="9">
-                    <p:password  id="password" value="#{cc.attrs.fieldpassword}"  placeholder="#{app['login.password']}" type="password"/>
-                       
+                    <b:inputText id="password" value="#{cc.attrs.fieldpassword}"  placeholder="#{app['login.password']}" type="password">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="key" />
+                        </f:facet>
+                    </b:inputText>
                 </b:column>
 
             </b:row>
@@ -148,7 +153,7 @@
 
             <b:row>
                 <b:column span="8" >
-                    <p:commandButton look="primary btn-block" value="#{app['button.login']}" 
+                    <b:commandButton look="primary btn-block" value="#{app['button.login']}" 
                                      action="#{cc.attrs.dologin}" icon="log-in" size="lg"
                                      update="#{cc.attrs.update}"/>
                 </b:column>
