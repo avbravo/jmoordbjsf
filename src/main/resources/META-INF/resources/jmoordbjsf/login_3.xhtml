@@ -13,11 +13,11 @@
         <composite:attribute name="labelusername" />
         <composite:attribute name="fieldpassword" />
         <composite:attribute name="update" default=":form:growl"/>
-         <composite:attribute name="dologin" 
+        <composite:attribute name="dologin" 
                              method-signature="java.lang.String action()" />
-         
 
-         <composite:attribute  name="showone" default="false"  type="java.lang.Boolean"/>
+
+        <composite:attribute  name="showone" default="false"  type="java.lang.Boolean"/>
         <composite:attribute name="valueone" default="" />
         <composite:attribute name="labelone" default=""/>
         <composite:attribute name="idone" default="_notdefinedone_"/>
@@ -30,7 +30,8 @@
         <composite:attribute name="selectItemsLabelone" />
         <composite:attribute name="onchangeone" default ="" />
         <composite:attribute name="updateone" default ="" />
-        
+        <composite:attribute name="converterOne"/>
+
         <composite:attribute  name="showtwo" default="false"  type="java.lang.Boolean"/>
         <composite:attribute name="labeltwo" default=""/>
         <composite:attribute name="valuetwo" default="" />
@@ -44,11 +45,13 @@
         <composite:attribute name="selectItemsLabeltwo" />
         <composite:attribute name="onchangetwo" default ="" />
         <composite:attribute name="updatetwo" default ="" />
-        
-        
-        
 
-       
+        <composite:attribute name="converterTwo"/>
+
+
+
+
+
 
     </composite:interface>
     <composite:implementation>
@@ -59,11 +62,9 @@
                     <h:outputText value="#{cc.attrs.labelusername}"  />
                 </b:column>
                 <b:column medium-screen="9">
-                    <b:inputText id="username" value="#{cc.attrs.fieldusername}" placeholder="#{cc.attrs.labelusername}" >
-                        <f:facet name="prepend">
-                            <b:icon name="user" />
-                        </f:facet>
-                    </b:inputText>
+                    <p:inputText id="username" value="#{cc.attrs.fieldusername}" placeholder="#{cc.attrs.labelusername}" >
+
+                    </p:inputText>
                 </b:column>
 
             </b:row>
@@ -72,11 +73,8 @@
                     <h:outputText value="#{app['login.password']}" />
                 </b:column>
                 <b:column medium-screen="9">
-                    <b:inputText id="password" value="#{cc.attrs.fieldpassword}"  placeholder="#{app['login.password']}" type="password">
-                        <f:facet name="prepend">
-                            <b:iconAwesome name="key" />
-                        </f:facet>
-                    </b:inputText>
+                    <p:password  id="password" value="#{cc.attrs.fieldpassword}"  placeholder="#{app['login.password']}" type="password"/>
+
                 </b:column>
 
             </b:row>
@@ -88,7 +86,7 @@
 
                 <b:column medium-screen="9">
 
-                    <b:selectOneMenu id="#{cc.attrs.idone}" 
+                    <p:selectOneMenu id="#{cc.attrs.idone}" 
                                      rendered="#{cc.attrs.showone}"
                                      value="#{cc.attrs.valueone}"  
                                      required="#{cc.attrs.requiredone}"  
@@ -106,11 +104,13 @@
                                        itemLabel="#{cc.attrs.selectItemsLabelone}"
 
                                        />
+                        <f:converter binding="#{cc.attrs.converterOne}"/>
+                    </p:selectOneMenu>
 
-                    </b:selectOneMenu>
+
                 </b:column>
             </b:row>
-            
+
             <b:row>
                 <b:column medium-screen="3"  >
                     <p:outputLabel  value="#{cc.attrs.labeltwo}"  rendered="#{cc.attrs.showtwo}" />
@@ -140,20 +140,20 @@
                     </b:selectOneMenu>
                 </b:column>
             </b:row>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
 
             <b:row>
                 <b:column span="8" >
-                    <b:commandButton look="primary btn-block" value="#{app['button.login']}" 
+                    <p:commandButton look="primary btn-block" value="#{app['button.login']}" 
                                      action="#{cc.attrs.dologin}" icon="log-in" size="lg"
                                      update="#{cc.attrs.update}"/>
                 </b:column>
