@@ -8,9 +8,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <composite:interface >
 
-     
-<composite:attribute name="controller" type="java.lang.Object"/> 
-<composite:attribute name="url" default=""/> 
+
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+        <composite:attribute name="url" default=""/> 
 
         <composite:attribute name="renderedList" default="true" />
         <composite:attribute name="renderedSave" default="true" />
@@ -27,7 +27,11 @@
     <composite:implementation>
 
 
-
+        <p:ajaxStatus onstart="PF('jmoordbjsfStatusDialog').show()" onsuccess="PF('jmoordbjsfStatusDialog').hide()" />
+        <p:dialog widgetVar="jmoordbjsfStatusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <p:outputLabel value="Procesando...."/>
+            <i class="pi pi-spin pi-spinner" style="font-size: 2em"></i>
+        </p:dialog>
 
         <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
 
@@ -48,7 +52,7 @@
             <b:commandButton  iconAwesome="fa-eraser"         
                               rendered="#{cc.attrs.renderedNew}"  
                               look="success"
-                              
+
                               value= "#{app['button.clear']}"
                               title="#{app['button.clear']}"
                               action="#{cc.attrs.controller[cc.attrs.prepareNew]}" 
@@ -65,14 +69,14 @@
                              rendered="#{cc.attrs.renderedList}"  
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.controller[cc.attrs.prepareGoList]}" >             
-                  <f:attribute name="url" value="#{cc.attrs.url}"/>              
+                <f:attribute name="url" value="#{cc.attrs.url}"/>              
             </b:commandButton>
 
 
 
         </b:panelGrid>
-        
-           <p:blockUI block="#{cc.attrs.componentToBlock}" trigger="jmoordbjsfCommandButtonSave" />
+
+   
 
     </composite:implementation>
 
