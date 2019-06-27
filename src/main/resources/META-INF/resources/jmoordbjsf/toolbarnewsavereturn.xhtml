@@ -18,6 +18,7 @@
 
 
         <composite:attribute name="save"  default="save" />
+        <composite:attribute name="block"  default="" />
   
         <composite:attribute name="prepareNew" default="prepareNew" />
         <composite:attribute name="prepareGoList" default="prepareGoList" />
@@ -76,7 +77,7 @@
 
         </b:panelGrid>
 
-   
+        <p:blockUI block="#{cc.attrs.block}" trigger="jmoordbjsfCommandButtonSave" />
 
     </composite:implementation>
 
