@@ -3,17 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:composite="http://java.sun.com/jsf/composite"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:b="http://bootsfaces.net/ui">
     <composite:interface >
 
 
         <composite:attribute name="id" />
         <composite:attribute name="value" />
+        <composite:attribute name="mask" default="" />
         <composite:attribute name="label"/>
+        <composite:attribute name="render_label" default="false"/>
+        <composite:attribute name="readonly" default="false" />
         <composite:attribute name="required" default="true"/>
-        <composite:attribute name="span" default="12"/>
-
+        <composite:attribute name="size" default="35"/>
+        
 
     </composite:interface>
     <composite:implementation>
@@ -23,16 +25,12 @@
                       value="#{cc.attrs.value}"
                       placeholder="#{cc.attrs.label}"  
                       required="#{cc.attrs.required}"  
-                      span="#{cc.attrs.span}" 
-                      mask="email"
-                      validatorMessage="#{app['label.new']}"
-                      requiredMessage="#{cc.attrs.label} #{app['info.required']}">
-            <f:validateRegex
-                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                      readonly="#{cc.attrs.readonly}"  
+                      mask="#{cc.attrs.mask}"
+                      render-label="#{cc.attrs.render_label}"
+                   size="#{cc.attrs.size}" 
+                      requiredMessage="#{cc.attrs.label} #{app['info.required']}"/>
 
-        </p:inputText>
-
-        <b:message for="@previous" />
 
     </composite:implementation>
 

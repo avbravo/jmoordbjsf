@@ -12,7 +12,7 @@
         <composite:attribute name="value" />
         <composite:attribute name="label"/>
         <composite:attribute name="required" default="true"/>
-        <composite:attribute name="span" default="12"/>
+        <composite:attribute name="size" default="12"/>
 
 
     </composite:interface>
@@ -23,7 +23,7 @@
                       value="#{cc.attrs.value}"
                       placeholder="#{cc.attrs.label}"  
                       required="#{cc.attrs.required}"  
-                      span="#{cc.attrs.span}" 
+                      size="#{cc.attrs.size}" 
                       mask="email"
                       validatorMessage="#{app['label.new']}"
                       requiredMessage="#{cc.attrs.label} #{app['info.required']}">
