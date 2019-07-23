@@ -11,7 +11,8 @@
 <composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="renderedEdit" />
         <composite:attribute name="renderedDelete" />
-        <composite:attribute name="renderedList" />
+        <composite:attribute name="renderedList" default="true"/>
+        <composite:attribute name="renderedPrint" default="true"/>
 
 
         <composite:attribute name="rendered" />
@@ -65,7 +66,7 @@
 
 
             <b:commandButton iconAwesome="fa-print" 
-                             rendered="#{cc.attrs.renderedList}"
+                             rendered="#{cc.attrs.renderedPrint}"
                              value="#{app['button.print']}"
                              title="#{app['button.print']}" 
                              process=":form:content"
@@ -82,7 +83,7 @@
 
             <b:commandButton immediate="true"
                              iconAwesome="fa-share" 
-
+rendered="#{cc.attrs.renderedList}"
                              value="#{app['button.return']}" 
                              title="#{app['button.return']}" 
                              look="primary"
