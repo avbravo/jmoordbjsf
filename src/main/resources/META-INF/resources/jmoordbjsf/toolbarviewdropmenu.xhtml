@@ -8,7 +8,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
-        <composite:attribute name="controller" type="java.lang.Object"/> 
+<composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="renderedEdit" />
         <composite:attribute name="renderedDelete" />
         <composite:attribute name="renderedList" default="true"/>
@@ -32,7 +32,7 @@
 
         <b:panelGrid id="panelEdit" colSpans="3,3,3,3" size="xs" > 
 
-            <p:commandButton rendered="#{cc.attrs.renderedEdit}" 
+            <b:commandButton rendered="#{cc.attrs.renderedEdit}" 
 
                              iconAwesome="fa-edit" 
                              title="#{app['button.edit']}"  
@@ -41,22 +41,31 @@
                              action="#{cc.attrs.controller[cc.attrs.edit]}"
                              look="primary"
                              update=":form:content" > 
-
+               
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
-            </p:commandButton>
+            </b:commandButton>
+
+            <b:dropMenu value="#{app['button.delete']}" iconAwesome="fa-trash-o" rendered="#{cc.attrs.renderedDelete}">
+                <b:panel title="#{app['info.doyouwantdelete']}" >
+                    <b:button value="#{app['button.no']}" look="success" />
+                    <b:commandButton rendered="#{cc.attrs.renderedDelete}" 
+                                     look="danger"
+                                     iconAwesome="fa-trash-o" 
+                                     value="#{app['button.yes']}" 
+                                     title="#{app['button.delete']}" 
+                                     process=":form:content" 
+                                     action="#{cc.attrs.controller[cc.attrs.delete]}"
+
+                                     update=":form:content" > 
+                       
+                        <f:attribute name="url" value="#{cc.attrs.url}"/>
+                    </b:commandButton>
+                </b:panel>
+            </b:dropMenu>
 
 
-            <p:commandButton value="#{app['button.delete']}" 
-                             action="#{cc.attrs.controller[cc.attrs.delete]}"
-                             update=":form:content">
-                <p:confirm header="#{app['info.doyouwantdelete']}"
-                           message="#{app['info.doyouwantdelete']}" icon="pi pi-exclamation-triangle" />
-            </p:commandButton>
 
-         
-
-
-            <p:commandButton iconAwesome="fa-print" 
+            <b:commandButton iconAwesome="fa-print" 
                              rendered="#{cc.attrs.renderedPrint}"
                              value="#{app['button.print']}"
                              title="#{app['button.print']}" 
@@ -65,31 +74,26 @@
                              ajax="false"
                              look="primary"
                              > 
-
+                
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
-            </p:commandButton>
+            </b:commandButton>
 
 
 
 
-            <p:commandButton immediate="true"
+            <b:commandButton immediate="true"
                              iconAwesome="fa-share" 
-                             rendered="#{cc.attrs.renderedList}"
+rendered="#{cc.attrs.renderedList}"
                              value="#{app['button.return']}" 
                              title="#{app['button.return']}" 
                              look="primary"
                              action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
-
+                
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
-            </p:commandButton>
+            </b:commandButton>
 
-            
-          
         </b:panelGrid>
-      <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                <p:commandButton value="#{app['button.yes']}"  type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-                <p:commandButton value="#{app['button.no']}"  type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-            </p:confirmDialog>    
+
 
     </composite:implementation>
 

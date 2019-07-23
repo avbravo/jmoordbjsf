@@ -37,13 +37,13 @@
                           />
         <b:panel title="#{cc.attrs.title}" look="primary">
             <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="2,1,8,1"> 
-                <b:commandButton  iconAwesome="fa-eraser"         
+                <p:commandButton  iconAwesome="fa-eraser"         
                                   look="success"
                                   title="#{app['button.clear']}"
                                   action="#{cc.attrs.controller[cc.attrs.prepareNew]}"  update=":form:content" > 
                     <f:ajax />
                    
-                </b:commandButton>
+                </p:commandButton>
                 <p:outputLabel value="#{cc.attrs.label}"/>
 
                 <p:calendar
@@ -59,14 +59,14 @@
                             update=":form:content :form:panel" />
                    
                 </p:calendar>
-                <b:commandButton immediate="true"
+                <p:commandButton immediate="true"
                                  look="primary"
                                  iconAwesome="fa-share" 
                                  rendered="#{cc.attrs.rendererList}" 
                                  title="#{app['button.search']}" 
                                  action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">                
                     
-                </b:commandButton>
+                </p:commandButton>
 
             </b:panelGrid>
         </b:panel>

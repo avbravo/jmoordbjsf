@@ -36,7 +36,7 @@
 
         <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
 
-            <b:commandButton rendered="#{cc.attrs.renderedSave}"                          
+            <p:commandButton rendered="#{cc.attrs.renderedSave}"                          
                              id="jmoordbjsfCommandButtonSave"
                              iconAwesome="fa-floppy-o"
                              title="#{app['button.save']}"
@@ -48,9 +48,9 @@
                 <f:attribute name="entity" value="#{cc.attrs.entity}"/>
                 <f:attribute name="repository" value="#{cc.attrs.repository}"/>
                 <f:attribute name="searchbyfieldsecond" value="#{cc.attrs.searchbyfieldsecond}"/>
-            </b:commandButton>
+            </p:commandButton>
 
-            <b:commandButton  iconAwesome="fa-eraser"         
+            <p:commandButton  iconAwesome="fa-eraser"         
                               rendered="#{cc.attrs.renderedNew}"  
                               look="success"
                               immediate="true"
@@ -60,12 +60,12 @@
                               title="#{app['button.clear']}"
                               action="#{cc.attrs.controller[cc.attrs.prepareNew]}" 
                               update=":form:content" >                 
-            </b:commandButton>
+            </p:commandButton>
 
 
 
 
-            <b:commandButton immediate="true"
+            <p:commandButton immediate="true"
                              look="primary"
                              value= "#{app['button.search']}"
                              iconAwesome="fa-share" 
@@ -73,7 +73,7 @@
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.controller[cc.attrs.prepareGoList]}" >             
                 <f:attribute name="url" value="#{cc.attrs.url}"/>              
-            </b:commandButton>
+            </p:commandButton>
 
 
 
