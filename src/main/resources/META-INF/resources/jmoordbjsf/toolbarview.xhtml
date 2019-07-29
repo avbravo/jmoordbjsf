@@ -10,7 +10,7 @@
 
         <composite:attribute name="controller" type="java.lang.Object"/> 
         <composite:attribute name="renderedEdit" />
-        <composite:attribute name="renderedDelete" />
+        <composite:attribute name="renderedDelete" default="true"/>
         <composite:attribute name="renderedList" default="true"/>
         <composite:attribute name="renderedPrint" default="true"/>
 
@@ -47,6 +47,7 @@
 
 
             <p:commandButton value="#{app['button.delete']}" 
+                             rendered="#{cc.attrs.renderedDelete}"
                              action="#{cc.attrs.controller[cc.attrs.delete]}"
                              update=":form:content">
                 <p:confirm header="#{app['info.doyouwantdelete']}"
