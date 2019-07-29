@@ -11,26 +11,18 @@
 
         <composite:attribute name="url" default=""/> 
         <composite:attribute name="rendered" default="true"/>
-        <composite:attribute name="renderedEdit" default="true"/>
-   
-        <composite:attribute name="prepareView"  default="prepareView" />
 
     </composite:interface>
     <composite:implementation>
 
-
-  
+ 
                     <p:commandButton                 
                         style="margin-bottom:10px;"
-                        iconAwesome="fa-edit" 
-                        title="#{app['button.edit']}"
-                        immediate="true"
-                        look="primary"
-                        oncomplete="remoteid()"
-                        rendered="#{cc.attrs.renderedEdit}"
-                        action= "#{cc.attrs.controller[cc.attrs.prepareView]}" 
+                        title="#{app['button.cancel']}"
+                        immediate="true"              
+                        rendered="#{cc.attrs.rendered}"
+                        action= "#{cc.attrs.controller[cc.attrs.cancel]}" 
                         >
-
                         <f:attribute name="controller" value="#{cc.attrs.controller}"/>
                         <f:attribute name="item" value="#{cc.attrs.item}"/>
                         <f:attribute name="url" value="#{cc.attrs.url}"/>
