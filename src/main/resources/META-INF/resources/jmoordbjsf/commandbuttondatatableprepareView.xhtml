@@ -11,8 +11,7 @@
 
         <composite:attribute name="url" default=""/> 
         <composite:attribute name="rendered" default="true"/>
-        <composite:attribute name="renderedEdit" default="true"/>
-   
+    
         <composite:attribute name="prepareView"  default="prepareView" />
 
     </composite:interface>
@@ -27,7 +26,7 @@
                         immediate="true"
                         look="primary"
                         oncomplete="remoteid()"
-                        rendered="#{cc.attrs.renderedEdit}"
+                        rendered="#{cc.attrs.rendered}"
                         action= "#{cc.attrs.controller[cc.attrs.prepareView]}" 
                         >
 
