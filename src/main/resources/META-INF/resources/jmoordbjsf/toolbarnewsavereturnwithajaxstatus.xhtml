@@ -28,7 +28,12 @@
     <composite:implementation>
 
 
-        
+        <p:ajaxStatus onstart="PF('jmoordbjsfStatusDialog').show()" onsuccess="PF('jmoordbjsfStatusDialog').hide()" />
+        <p:dialog widgetVar="jmoordbjsfStatusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <p:outputLabel value="Procesando...."/>
+            <i class="pi pi-spin pi-spinner" style="font-size: 2em"></i>
+        </p:dialog>
+
         <b:panelGrid id="panelEdit" colSpans="4,4,4" size="xs" > 
 
             <p:commandButton rendered="#{cc.attrs.renderedSave}"                          
