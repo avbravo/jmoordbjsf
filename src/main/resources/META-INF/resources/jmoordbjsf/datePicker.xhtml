@@ -28,7 +28,8 @@
 
 
 
-        <p:datepicker
+
+        <p:datePicker 
             id="#{cc.attrs.id}" 
             mode="#{cc.attrs.mode}"
             value="#{cc.attrs.value}"
@@ -44,7 +45,7 @@
             <p:ajax event="dateSelect" 
                     listener="#{cc.attrs.listener}"
                     update="#{cc.attrs.update}" />   
-        </p:calendar>
+        </p:datePicker>>
 
     </composite:implementation>
 
