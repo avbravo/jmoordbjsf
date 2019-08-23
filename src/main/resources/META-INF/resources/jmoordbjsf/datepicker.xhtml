@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <composite:interface >
+
+
+        <composite:attribute name="id" />
+        <composite:attribute name="value" />
+        <composite:attribute name="label"/>
+        <composite:attribute name="mindate" default=""/>
+        <composite:attribute name="mode" default="popup"/>
+        <composite:attribute name="required"/>
+        <composite:attribute name="update" default=""/>
+        <composite:attribute name="disabled" default="false"/>
+
+        <composite:attribute name="selectOtherMonths" default="true"/>
+        <composite:attribute name="showTodayButton" default="true"/>
+        <composite:attribute name="navigator" default="true"/>
+        <composite:attribute name="pattern" default="dd/MM/yyyy" />
+        <composite:attribute name="listener"  
+                             method-signature="void handleSelect(org.primefaces.event.SelectEvent)" />
+    </composite:interface>
+    <composite:implementation>
+
+
+
+        <p:datepicker
+            id="#{cc.attrs.id}" 
+            mode="#{cc.attrs.mode}"
+            value="#{cc.attrs.value}"
+            disabled ="#{cc.attrs.disabled}"
+            placeholder="#{cc.attrs.label}"  
+            required="#{cc.attrs.required}" 
+            requiredMessage="#{cc.attrs.label} #{app['info.required']}"
+            pattern="#{cc.attrs.pattern}"
+            selectOtherMonths="#{cc.attrs.selectOtherMonths}"
+            showTodayButton="#{cc.attrs.showTodayButton}"
+            mindate="#{cc.attrs.mindate}"
+            navigator="#{cc.attrs.navigator}">
+            <p:ajax event="dateSelect" 
+                    listener="#{cc.attrs.listener}"
+                    update="#{cc.attrs.update}" />   
+        </p:calendar>
+
+    </composite:implementation>
+
+</html>
