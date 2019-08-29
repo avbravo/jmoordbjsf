@@ -65,12 +65,25 @@ and open the template in the editor.
         background: #1AA11A none !important;  /* green */  
         border-color: #136e13 !important;     /* green */  
     }  
+    div.aprobado {  
+        background: #1AA11A none !important;  /* green */  
+        border-color: #136e13 !important;     /* green */  
+    }  
  
     div.cancelado {  
         background: #F03030 none !important;  /* red */  
         border-color: #bd2828 !important;     /* red */  
     }  
     div.anulado {  
+        background: #FFA500 none !important;  /* orange */  
+        border-color: #cc8100 !important;     /* orange */  
+    }  
+    div.solicitado{  
+        background: #5D99C3 none !important;  /* celeste */  
+        border-color: #97B0F8 !important;     /* celeste */  
+    }  
+ 
+    div.rechazado {  
         background: #FFA500 none !important;  /* orange */  
         border-color: #cc8100 !important;     /* orange */  
     }  
