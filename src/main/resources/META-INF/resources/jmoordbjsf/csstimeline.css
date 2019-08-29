@@ -3,6 +3,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
+/*
+NOTA:
+Cada vez que se agregue o quite un color debe ser actualizada la clase CSSTimeLine.java que se encuentra en el proyecto jmoordbutils
+*/
  div.timeline-frame {  
         border-color: #5D99C3;  
         border-radius: 5px;  
