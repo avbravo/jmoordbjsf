@@ -56,8 +56,9 @@ and open the template in the editor.
         border-color: #cc8100 !important;     /* orange */  
     }  
     div.norealizado {  
-        background: #F03030 none !important;  /* red */  
-        border-color: #bd2828 !important;     /* red */  
+          background: #FFA500 none !important;  /* orange */  
+        border-color: #cc8100 !important;     /* orange */  
+      
     }  
  
     div.realizado {  
@@ -66,8 +67,8 @@ and open the template in the editor.
     }  
  
     div.cancelado {  
-        background: #FFA500 none !important;  /* orange */  
-        border-color: #cc8100 !important;     /* orange */  
+        background: #F03030 none !important;  /* red */  
+        border-color: #bd2828 !important;     /* red */  
     }  
     div.anulado {  
         background: #FFA500 none !important;  /* orange */  
