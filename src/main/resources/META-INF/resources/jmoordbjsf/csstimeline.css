@@ -87,6 +87,36 @@ and open the template in the editor.
         background: #FFA500 none !important;  /* orange */  
         border-color: #cc8100 !important;     /* orange */  
     }  
+    
+    
+     div.verde {  
+        background: #1AA11A none !important;  /* green */  
+        border-color: #136e13 !important;     /* green */  
+    }  
+     div.azul {  
+        background: #3f5fbf none !important;  /* green */  
+        border-color: #428bca !important;     /* green */  
+    }  
+      div.rojo {  
+        background: #F03030 none !important;  /* red */  
+        border-color: #bd2828 !important;     /* red */  
+    }  
+     div.celeste{  
+        background: #5D99C3 none !important;  /* celeste */  
+        border-color: #97B0F8 !important;     /* celeste */  
+    }  
+    div.naranaja {  
+        background: #FFA500 none !important;  /* orange */  
+        border-color: #cc8100 !important;     /* orange */  
+    }  
+    div.amarillo {  
+        background: #FFA500 none !important;  /* amarillo */  
+        border-color: #FFA500 !important;     /* amarillo */  
+    }  
+    div.morado{  
+        background: #7f007f none !important;  /* amarillo */  
+        border-color: #7f0055 !important;     /* amarillo */  
+    }  
  
     div.timeline-event-selected {  
         background: #BECEFE none !important;  
