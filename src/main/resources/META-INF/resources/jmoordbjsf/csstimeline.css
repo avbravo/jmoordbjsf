@@ -93,13 +93,22 @@ Cada vez que se agregue o quite un color debe ser actualizada la clase CSSTimeLi
     }  
     
     
+     div.chocolate {  
+        background: #A85418 none !important;  /* green */  
+        border-color: #A85418 !important;     /* green */  
+    }  
+    
      div.verde {  
         background: #1AA11A none !important;  /* green */  
         border-color: #136e13 !important;     /* green */  
     }  
+     div.verdeamarillo {  
+        background: #C6CE00 none !important;  /* green */  
+        border-color: #136e13 !important;     /* green */  
+    }  
      div.azul {  
-        background: #3f5fbf none !important;  /* green */  
-        border-color: #428bca !important;     /* green */  
+        background: #3f5fbf none !important;  /* azul */  
+        border-color: #428bca !important;     /* azul */  
     }  
       div.rojo {  
         background: #F03030 none !important;  /* red */  
@@ -109,17 +118,17 @@ Cada vez que se agregue o quite un color debe ser actualizada la clase CSSTimeLi
         background: #5D99C3 none !important;  /* celeste */  
         border-color: #97B0F8 !important;     /* celeste */  
     }  
-    div.naranaja {  
-        background: #FFA500 none !important;  /* orange */  
-        border-color: #cc8100 !important;     /* orange */  
+    div.naranja {  
+        background: #FFA500 none !important;  /* naranja */  
+        border-color: #cc8100 !important;     /* naranja*/  
     }  
     div.amarillo {  
         background: #FFA500 none !important;  /* amarillo */  
         border-color: #FFA500 !important;     /* amarillo */  
     }  
     div.morado{  
-        background: #7f007f none !important;  /* amarillo */  
-        border-color: #7f0055 !important;     /* amarillo */  
+        background: #7f007f none !important;  /* morado */  
+        border-color: #7f0055 !important;     /* morado */  
     }  
  
     div.timeline-event-selected {  
