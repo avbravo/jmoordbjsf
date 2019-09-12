@@ -50,15 +50,21 @@
                     pattern="#{cc.attrs.pattern}"
                     selectOtherMonths="true"
                     navigator="true"
-                    />
+                    >
+                     <p:ajax event="dateSelect" 
+                            listener="#{cc.attrs.search}" update="#{cc.attrs.update}" />
+                </p:calendar>
                  <p:outputLabel value="#{cc.attrs.labelHasta}"/>
                 <p:calendar
                     value="#{cc.attrs.valueHasta}"
                     required="false" 
                     pattern="#{cc.attrs.pattern}"
                     selectOtherMonths="true"
-                    navigator="true"
-                    />
+                    navigator="true"                    
+                    >
+                    <p:ajax event="dateSelect" 
+                            listener="#{cc.attrs.search}" update="#{cc.attrs.update}" />
+                </p:calendar>
 
 
               
