@@ -10,9 +10,18 @@
 
         <composite:attribute name="update" default =":form:dataTable" />
         <composite:attribute name="label" />
+        <composite:attribute name="id" default="_searchid" />
         <composite:attribute name="value" />
         <composite:attribute name="renderedSearch" default="true"/>
         <composite:attribute name="search"  
+                             method-signature="java.lang.String action()" />
+        
+        <composite:attribute name="update2" default =":form:dataTable" />
+         <composite:attribute name="id2" default="_searchid2" />
+        <composite:attribute name="label2" />
+        <composite:attribute name="value2" />
+        <composite:attribute name="renderedSearch2" default="true" />
+        <composite:attribute name="search2"  
                              method-signature="java.lang.String action()" />
 
     </composite:interface>
@@ -35,13 +44,29 @@
             </div>
             <div class="ui-g-12 ui-md-5">
                 <div class="ui-inputgroup">
-                    <p:inputText id="search" placeholder="#{cc.attrs.label}" 
+                    <p:inputText id="#{cc.attrs.id}" placeholder="#{cc.attrs.label}" 
                                  value="#{cc.attrs.value}"/>
                     <p:commandButton icon="pi pi-search"  
                                      styleClass="white-button"
                                      rendered="#{cc.attrs.renderedSearch}" 
                                      action="#{cc.attrs.search}"
                                      update="#{cc.attrs.update}"/>  
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-1">
+                <div class="ui-inputgroup">
+                    <p:outputLabel value="#{cc.attrs.label2}"/>    
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-5">
+                <div class="ui-inputgroup">
+                    <p:inputText id="#{cc.attrs.id2}" placeholder="#{cc.attrs.label2}" 
+                                 value="#{cc.attrs.value2}"/>
+                    <p:commandButton icon="pi pi-search"  
+                                     styleClass="white-button"
+                                     rendered="#{cc.attrs.renderedSearch2}" 
+                                     action="#{cc.attrs.search2}"
+                                     update="#{cc.attrs.update2}"/>  
                 </div>
             </div>
 
