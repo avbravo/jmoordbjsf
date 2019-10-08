@@ -21,7 +21,7 @@
         <composite:attribute name="columns" default="3" />
 
 
-        <composite:attribute name="renderedList" />
+        <composite:attribute name="rendered" default="true"/>
 
 
         <composite:attribute name="search"  
@@ -72,7 +72,7 @@
                                  look="info"
                                  oncomplete="remotesearch()"
                                  iconAwesome="fa-filter" 
-                                 rendered="#{cc.attrs.renderedList}" 
+                                 rendered="#{cc.attrs.rendered}" 
                                  title="#{app['button.search']}" 
                                  action="#{cc.attrs.search}"/>
 

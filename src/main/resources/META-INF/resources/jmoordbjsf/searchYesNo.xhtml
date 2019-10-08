@@ -11,13 +11,11 @@
         <composite:attribute name="update" default =":form:dataTable" />
 
         <composite:attribute name="label" />
+        <composite:attribute name="id"  />
         <composite:attribute name="value" />
         <composite:attribute name="colSpans" default="2,4,6"/>
         <composite:attribute name="columns" default="3" />
-        <composite:attribute name="renderedMove" default="true" />
 
-
-        <composite:attribute name="renderedList" />
 
         <composite:attribute name="colMd" default="2"/>
         <composite:attribute name="labelColMd" default="2"/>
@@ -33,7 +31,7 @@
 
         <!--<b:panel >-->
 
-        <p:remoteCommand name="remotesearch"
+        <p:remoteCommand name="remotesearchyesno"
 
                          update="#{cc.attrs.update}"/>
 
@@ -41,7 +39,7 @@
 
             <p:outputLabel value="#{cc.attrs.label}"/>
 
-            <b:selectOneMenu value="#{cc.attrs.value}"
+            <b:selectOneMenu value="#{cc.attrs.value}" id="#{cc.attrs.id}"
                               >
                 <f:selectItem itemLabel="#{app['button.yes']}" itemValue="si" />
                 <f:selectItem itemLabel="#{app['button.no']}" itemValue="no" />
@@ -53,7 +51,7 @@
                              look="info"
                              oncomplete="remotesearch()"
                              iconAwesome="fa-filter" 
-                             rendered="#{cc.attrs.renderedList}" 
+           
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.search}"/>
 
