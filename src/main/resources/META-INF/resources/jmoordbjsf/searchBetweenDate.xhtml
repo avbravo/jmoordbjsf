@@ -36,7 +36,7 @@
 
 <!--        <b:panel >-->
 
-            <p:remoteCommand name="remotesearch"
+            <p:remoteCommand name="remotesearchBetweenDate"
 
                              update="#{cc.attrs.update}"/>
 
@@ -70,7 +70,7 @@
               
                 <b:commandButton update="#{cc.attrs.update}"
                                  look="info"
-                                 oncomplete="remotesearch()"
+                                 oncomplete="remotesearchBetweenDate()"
                                  iconAwesome="fa-filter" 
                                  rendered="#{cc.attrs.rendered}" 
                                  title="#{app['button.search']}" 

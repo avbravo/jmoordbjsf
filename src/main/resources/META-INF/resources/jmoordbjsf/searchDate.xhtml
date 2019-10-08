@@ -13,12 +13,10 @@
         <composite:attribute name="label" />
         <composite:attribute name="value" />
         <composite:attribute name="colSpans" default="2,4,6"/>
-        <composite:attribute name="renderedMove" default="true" />
         <composite:attribute name="pattern" default ="dd/MM/yyy"/>
         <composite:attribute name="columns" default="3" />
 
 
-        <composite:attribute name="rendered" default="true" />
 
 
         <composite:attribute name="search"  
@@ -33,7 +31,7 @@
 
         <!--<b:panel >-->
 
-        <p:remoteCommand name="remotesearch"   update="#{cc.attrs.update}"/>
+        <p:remoteCommand name="remotesearchDate"   update="#{cc.attrs.update}"/>
 
         <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="#{cc.attrs.colSpans}"> 
 
@@ -45,14 +43,15 @@
                 pattern="#{cc.attrs.pattern}"
                 selectOtherMonths="true"
                 navigator="true"
-                />
-
+                >
+                      <p:ajax event="dateSelect" 
+                            listener="#{cc.attrs.search}" update="#{cc.attrs.update}" />
+    </p:calendar>
 
             <b:commandButton update="#{cc.attrs.update}"
                              look="info"
-                             oncomplete="remotesearch()"
+                             oncomplete="remotesearchDate()"
                              iconAwesome="fa-filter" 
-                             rendered="#{cc.attrs.renderedList}" 
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.search}"/>
 
