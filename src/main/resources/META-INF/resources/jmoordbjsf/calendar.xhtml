@@ -26,7 +26,9 @@
     </composite:interface>
     <composite:implementation>
 
+ <p:remoteCommand name="jmoordbjsfcalendar"
 
+                             update="#{cc.attrs.update}"/>
 
         <p:calendar
             id="#{cc.attrs.id}" 
@@ -43,6 +45,7 @@
             navigator="#{cc.attrs.navigator}">
             <p:ajax event="dateSelect" 
                     listener="#{cc.attrs.listener}"
+                      oncomplete="jmoordbjsfcalendar()"
                     update="#{cc.attrs.update}" />   
         </p:calendar>
 
