@@ -13,7 +13,7 @@
         <composite:attribute name="label"/>
         <composite:attribute name="mindate" default=""/>
         <composite:attribute name="mode" default="popup"/>
-        <composite:attribute name="required"/>
+        <composite:attribute name="required" default="false"/>
         <composite:attribute name="update" default=""/>
         <composite:attribute name="disabled" default="false"/>
 
@@ -26,9 +26,7 @@
     </composite:interface>
     <composite:implementation>
 
- <p:remoteCommand name="jmoordbjsfcalendar"
 
-                             update="#{cc.attrs.update}"/>
 
         <p:calendar
             id="#{cc.attrs.id}" 
@@ -44,8 +42,9 @@
             mindate="#{cc.attrs.mindate}"
             navigator="#{cc.attrs.navigator}">
             <p:ajax event="dateSelect" 
+                     process="@this"
                     listener="#{cc.attrs.listener}"
-                      oncomplete="jmoordbjsfcalendar()"
+            
                     update="#{cc.attrs.update}" />   
         </p:calendar>
 
