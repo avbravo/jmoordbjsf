@@ -7,7 +7,8 @@
     <composite:interface >
 
 
-        <composite:attribute name="rendered" />
+        <composite:attribute name="rendered" default="true"/>
+        <composite:attribute name="update" default=":form:content"/>
         <composite:attribute name="save" 
                              method-signature="java.lang.String action()" />
 
@@ -21,7 +22,7 @@
                          title="#{app['button.save']}"
                         look="primary"
                          action="#{cc.attrs.save}" 
-                         update=":form:content" /> 
+                         update="#{cc.attrs.update}" /> 
 
 
 

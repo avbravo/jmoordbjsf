@@ -9,6 +9,7 @@
     <composite:interface >
 
         <composite:attribute name="update" default =":form:dataTable" />
+        <composite:attribute name="rendered" default ="true" />
 
         <composite:attribute name="label" />
         <composite:attribute name="id"  />
@@ -40,7 +41,7 @@
             <p:outputLabel value="#{cc.attrs.label}"/>
 
             <b:selectOneMenu value="#{cc.attrs.value}" id="#{cc.attrs.id}"
-                              >
+                        rendered="#{cc.attrs.rendered}"     >
                 <f:selectItem itemLabel="#{app['button.yes']}" itemValue="si" />
                 <f:selectItem itemLabel="#{app['button.no']}" itemValue="no" />
 
@@ -51,7 +52,7 @@
                              look="info"
                              oncomplete="remotesearch()"
                              iconAwesome="fa-filter" 
-           
+           rendered="#{cc.attrs.rendered}" 
                              title="#{app['button.search']}" 
                              action="#{cc.attrs.search}"/>
 

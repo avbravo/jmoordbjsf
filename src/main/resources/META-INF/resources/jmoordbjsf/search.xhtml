@@ -12,6 +12,7 @@
         <composite:attribute name="label" />
         <composite:attribute name="value" />
         <composite:attribute name="renderedSearch" default="true"/>
+        <composite:attribute name="rendered" default="true"/>
         <composite:attribute name="search"  
                              method-signature="java.lang.String action()" />
 
@@ -36,10 +37,11 @@
             <div class="ui-g-12 ui-md-5">
                 <div class="ui-inputgroup">
                     <p:inputText id="search" placeholder="#{cc.attrs.label}" 
+                                 rendered="#{cc.attrs.rendered}"
                                  value="#{cc.attrs.value}"/>
                     <p:commandButton icon="pi pi-search"  
                                      styleClass="white-button"
-                                     rendered="#{cc.attrs.renderedSearch}" 
+                                     rendered="#{cc.attrs.rendered}" 
                                      action="#{cc.attrs.search}"
                                      update="#{cc.attrs.update}"/>  
                 </div>
