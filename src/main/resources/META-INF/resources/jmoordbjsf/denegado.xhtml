@@ -6,24 +6,24 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:b="http://bootsfaces.net/ui">
     <composite:interface >
-        <composite:attribute name="renderedcondition" />
+        <composite:attribute name="rendered" default="false" />
     </composite:interface>
     <composite:implementation>
 
-        <h:form id="formaccesodenegado" rendered="#{cc.attrs.renderedcondition}">
- <b:panel title="#{app['title.accesodenegado']}" id="content"   look="primary" > 
- 
-            <b:jumbotron>
-                <h1><p:outputLabel value="#{app['title.accesodenegado']}"/></h1>
-                <p><p:outputLabel value="#{app['label.notieneprivilegios']}"/></p>
-                <p><p:outputLabel value="#{app['label.debeloguearse']}"/></p>
-                <p></p>
-                <p> <b:commandButton look="danger" action="#{loginController.irLogin}"
-                value="#{app['button.login']}" ajax="false"/></p>
-                
-              
-            </b:jumbotron>
-  </b:panel>
+        <h:form id="jmoordbjsfformaccesodenegado" rendered="#{cc.attrs.rendered}">
+            <b:panel title="#{app['title.accesodenegado']}" id="content"   look="primary" > 
+
+                <b:jumbotron>
+                    <h1><p:outputLabel value="#{app['title.accesodenegado']}"/></h1>
+                    <p><p:outputLabel value="#{app['label.notieneprivilegios']}"/></p>
+                    <p><p:outputLabel value="#{app['label.debeloguearse']}"/></p>
+                    <p></p>
+                    <p> <b:commandButton look="danger" action="#{loginController.irLogin}"
+                                         value="#{app['button.login']}" ajax="false"/></p>
+
+
+                </b:jumbotron>
+            </b:panel>
         </h:form>
     </composite:implementation>
 
