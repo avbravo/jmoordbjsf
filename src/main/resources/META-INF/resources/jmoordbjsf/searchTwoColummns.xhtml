@@ -46,7 +46,7 @@
                 <div class="ui-inputgroup">
                     <p:inputText id="#{cc.attrs.id}" placeholder="#{cc.attrs.label}" 
                                  value="#{cc.attrs.value}"/>
-                    <p:commandButton icon="pi pi-search"  
+                    <p:commandButton icon="fa fa-fw fa-search"  
                                      styleClass="white-button"
                                      rendered="#{cc.attrs.renderedSearch}" 
                                      action="#{cc.attrs.search}"
@@ -62,11 +62,13 @@
                 <div class="ui-inputgroup">
                     <p:inputText id="#{cc.attrs.id2}" placeholder="#{cc.attrs.label2}" 
                                  value="#{cc.attrs.value2}"/>
-                    <p:commandButton icon="pi pi-search"  
+                    <p:commandButton icon="fa fa-fw fa-search"  
                                      styleClass="white-button"
                                      rendered="#{cc.attrs.renderedSearch2}" 
                                      action="#{cc.attrs.search2}"
-                                     update="#{cc.attrs.update2}"/>  
+                                     update="#{cc.attrs.update2}">  
+                  
+                    </p:commandButton>
                 </div>
             </div>
 
