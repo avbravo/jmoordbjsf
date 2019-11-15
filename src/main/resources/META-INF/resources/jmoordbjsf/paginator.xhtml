@@ -53,6 +53,7 @@
 
             <b:commandButton   iconAwesome="fa-step-backward" 
                                styleClass="ui-priority-primary"
+                               title="#{app['button.first']}" 
                                look="primary"
                                oncomplete="remoteshowall();"
                                action="#{cc.attrs.controller[cc.attrs.first]}"
@@ -63,6 +64,7 @@
 
             <b:commandButton   iconAwesome="fa-caret-left" 
                                styleClass="ui-priority-primary"
+                               title="#{app['button.back']}" 
                                look="primary"
                                oncomplete="remoteshowall();"
                                action="#{cc.attrs.controller[cc.attrs.back]}"
@@ -71,6 +73,7 @@
             </b:commandButton>
 
             <b:commandButton   iconAwesome="fa-play"  
+                               title="#{app['button.next']}" 
                                oncomplete="remoteshowall();"
                                action="#{cc.attrs.controller[cc.attrs.next]}" 
                                look="primary"
@@ -80,6 +83,7 @@
             </b:commandButton>
 
             <b:commandButton  iconAwesome="fa-step-forward"  
+                              title="#{app['button.last']}" 
                               oncomplete="remoteshowall();"
                               look="primary"
                               action="#{cc.attrs.controller[cc.attrs.last]}"  
@@ -101,9 +105,10 @@
 
             </b:selectOneMenu> 
 
-            <b:commandButton iconAwesome="fa-plus"  
+            <b:commandButton iconAwesome="fa-file-o"  
+                              title="#{app['button.new']}"   
                              action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
-                             look="primary"
+                             look="success"
                              rendered="#{cc.attrs.renderedNew}"
                              oncomplete="remotecontent()">
 
@@ -117,14 +122,14 @@
                              rendered="#{cc.attrs.renderedPrint}"  
                              action="#{cc.attrs.controller[cc.attrs.printAll]}"  
                              ajax="false"
-                             look="primary"
+                             look="success"
                              style="width:60px"/> 
 
 
             <b:commandButton  iconAwesome="fa-list-alt"                                                
                               action="#{cc.attrs.controller[cc.attrs.clear]}"     
                               rendered="#{cc.attrs.renderedClear}"    
-                              look="primary"
+                              look="success"
                               title="#{app['button.all']}"
                               update=":form:dataTable :form:content"
                               oncomplete="remoteshowall()"
