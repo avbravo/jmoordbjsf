@@ -8,6 +8,7 @@
 
 
         <composite:attribute name="rendered" default="true"/>
+        <composite:attribute name="look" default="primary"/>
         <composite:attribute name="update" default=":form:content"/>
         <composite:attribute name="save" 
                              method-signature="java.lang.String action()" />
@@ -20,7 +21,7 @@
                          value="#{app['button.save']}"
                          iconAwesome="fa-floppy-o"
                          title="#{app['button.save']}"
-                        look="primary"
+                        look="#{cc.attrs.look}" 
                          action="#{cc.attrs.save}" 
                          update="#{cc.attrs.update}" /> 
 
