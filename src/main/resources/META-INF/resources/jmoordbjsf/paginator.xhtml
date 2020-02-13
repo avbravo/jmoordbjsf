@@ -108,7 +108,7 @@
             <b:commandButton iconAwesome="fa-file-o"  
                               title="#{app['button.new']}"   
                              action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
-                             look="success"
+                             look="primary"
                              rendered="#{cc.attrs.renderedNew}"
                              oncomplete="remotecontent()">
 
@@ -122,14 +122,14 @@
                              rendered="#{cc.attrs.renderedPrint}"  
                              action="#{cc.attrs.controller[cc.attrs.printAll]}"  
                              ajax="false"
-                             look="success"
+                             look="primary"
                              style="width:60px"/> 
 
 
             <b:commandButton  iconAwesome="fa-list-alt"                                                
                               action="#{cc.attrs.controller[cc.attrs.clear]}"     
                               rendered="#{cc.attrs.renderedClear}"    
-                              look="success"
+                              look="primary"
                               title="#{app['button.all']}"
                               update=":form:dataTable :form:content"
                               oncomplete="remoteshowall()"
