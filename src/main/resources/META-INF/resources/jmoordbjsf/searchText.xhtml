@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+        <composite:attribute name="update" default =":form:dataTable" />
+        <composite:attribute name="label" />
+        <composite:attribute name="value" />
+        <composite:attribute name="size" default="35" />
+        <composite:attribute name="renderedSearch" default="true"/>
+        <composite:attribute name="rendered" default="true"/>
+        <composite:attribute name="search"  
+                             method-signature="java.lang.String action()" />
+
+    </composite:interface>
+    <composite:implementation>
+        <h:outputStylesheet library="jmoordbjsf" name="csspanelgrid.css"/>
+
+
+
+        <!--<b:panel >-->
+
+
+        <!--</b:panel>-->
+
+        <p:panelGrid   columns="3" styleClass="ui-panelgrid-blank" > 
+            <p:outputLabel value="#{cc.attrs.label}"/>    
+
+            <p:inputText id="search" placeholder="#{cc.attrs.label}" 
+                         rendered="#{cc.attrs.rendered}"
+                         size="#{cc.attrs.size}"
+                         value="#{cc.attrs.value}"/>
+            <p:commandButton icon="fa fa-fw fa-search"  
+                             styleClass="white-button"
+                             rendered="#{cc.attrs.rendered}" 
+                             action="#{cc.attrs.search}"
+                             update="#{cc.attrs.update}"/>  
+        </p:panelGrid>
+    </composite:implementation>
+
+</html>
