@@ -22,6 +22,7 @@
         <composite:attribute name="renderedNew" default="true"/>
         <composite:attribute name="renderedClear" default="true"/>
         <composite:attribute name="renderedPrint" default="true"/>
+        <composite:attribute name="renderedSearch" default="true"/>
 
 
 
@@ -30,6 +31,7 @@
         <composite:attribute name="back" default="back" />
         <composite:attribute name="next" default="next" />
         <composite:attribute name="last" default="last" />
+        <composite:attribute name="search" default="search" />
 
         <composite:attribute name="printAll" default="printAll" />
 
@@ -138,6 +140,15 @@
 
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </b:commandButton>
+            
+            
+             <b:commandButton  look="primary"
+                                              title="#{app['button.search']}"
+                                              immediate="true"
+                                              iconAwesome="fa-search" 
+                                              update=":form:dataTable :form:content"
+                                              id="paginatorcommandbuttonsearch"
+                                              oncomplete="PF('searchDialog').show();" />
 
             <b:selectOneMenu colMd="1"
                              value="#{cc.attrs.rowPage}"

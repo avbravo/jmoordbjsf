@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/*
+Quita los bordes del panel grid
+Uso:  styleClass="ui-panelgrid-blank"
+Ejemplo:
+<p:panelGrid id="searchDetails"  columns="2" styleClass="ui-panelgrid-blank" /> 
+*/
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-footer > tr.ui-widget-footer {
+    background: none !important;
+    border: 0 none !important;
+}
