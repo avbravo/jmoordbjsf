@@ -145,6 +145,7 @@
              <b:commandButton  look="primary"
                                               title="#{app['button.search']}"
                                               immediate="true"
+                                              rendered="#{cc.attrs.renderedSearch}" 
                                               iconAwesome="fa-search" 
                                               update=":form:dataTable :form:content"
                                               id="paginatorcommandbuttonsearch"
