@@ -30,8 +30,7 @@
     </composite:interface>
     <composite:implementation>
 
-  <p:toolbar>
-        <f:facet name="left">
+        <b:panelGrid id="panelEdit" colSpans="3,3,3,3" size="xs" > 
 
             <p:commandButton rendered="#{cc.attrs.renderedEdit}" 
 
@@ -45,9 +44,7 @@
 
                 <f:attribute name="url" value="#{cc.attrs.url}"/>
             </p:commandButton>
-  <span class="ui-separator">
-                <span class="ui-icon pi pi-ellipsis-v" />
-            </span>
+
 
             <p:commandButton value="#{app['button.delete']}" 
                              rendered="#{cc.attrs.renderedDelete}"
@@ -74,9 +71,7 @@
             </p:commandButton>
 
 
-  </f:facet>
- 
-        <f:facet name="right">
+
 
           
             <b:commandButton immediate="true"
@@ -91,8 +86,7 @@
                         </b:commandButton>
 
           
-        </f:facet>
-  </p:toolbar>
+        </b:panelGrid>
       <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                 <p:commandButton value="#{app['button.yes']}"  type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
                 <p:commandButton value="#{app['button.no']}"  type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
