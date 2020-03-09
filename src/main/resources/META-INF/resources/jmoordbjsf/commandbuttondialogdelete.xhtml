@@ -11,7 +11,7 @@
 
         <composite:attribute name="url" default=""/> 
         <composite:attribute name="rendered" default="true"/>
-        <composite:attribute name="renderedEdit" default="true"/>
+
         <composite:attribute name="renderedDelete" default="true"/>
 
         <composite:attribute name="deleteFromListxhtml"  default="deleteFromListxhtml" />
@@ -20,21 +20,30 @@
     </composite:interface>
     <composite:implementation>
 
-        <b:commandButton  look="success" icon-awesome="fa-edit" style=" background-color: #5eb85e; color: #5eb85e"
 
+        <b:commandButton value="#{app['button.no']}" look="success" onclick="PF('deleteListDialog').hide();"/>
 
-                          rendered="#{cc.attrs.renderedEdit}"
-                          title="#{app['button.edit']}"
-                          immediate="true"
-                       
-                          oncomplete="remoteid()"
-                          action= "#{cc.attrs.controller[cc.attrs.prepareView]}" 
-                          >
+        <b:commandButton  look="danger" 
+                          value="#{app['button.yes']}" 
+                          title="#{app['button.delete']}" 
+                          onclick="PF('deleteListDialog').hide();"/>
 
+        <b:commandButton rendered="#{cc.attrs.rendered}" 
+                         look="danger"
+                         iconAwesome="fa-trash-o" 
+                         value="#{app['button.yes']}" 
+                         title="#{app['button.delete']}" 
+                         oncomplete="remoteshowall();"
+                         process=":form:dataTable" 
+
+                         action= "#{cc.attrs.controller[cc.attrs.deleteFromListxhtml]}" 
+                         update=":form:dataTable" > 
             <f:attribute name="controller" value="#{cc.attrs.controller}"/>
             <f:attribute name="item" value="#{cc.attrs.item}"/>
             <f:attribute name="url" value="#{cc.attrs.url}"/>
-        </b:commandButton>
+
+
+
 
     </composite:implementation>
 
