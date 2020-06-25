@@ -15,7 +15,8 @@
         <composite:attribute name="update" default=":form:growl"/>
          <composite:attribute name="dologin" 
                              method-signature="java.lang.String action()" />
-      
+         <composite:attribute name="execute" 
+                             method-signature="java.lang.String action()" />
          
 
          <composite:attribute  name="showone" default="false"  type="java.lang.Boolean"/>
@@ -54,8 +55,8 @@
     </composite:interface>
     <composite:implementation>
 
-       <p:panel header="#{app['login.title']}"  closable="false" >
-            <p:row>
+        <b:panel title="#{app['login.title']}" look="primary" collapsed="false" >
+            <b:row>
                 <b:column medium-screen="3">
                     <h:outputText value="#{cc.attrs.labelusername}"  />
                 </b:column>
@@ -67,7 +68,7 @@
                     </b:inputText>
                 </b:column>
 
-            </p:row>
+            </b:row>
             <b:row tooltip="#{app['tooltip.password']}">
                 <b:column medium-screen="3">
                     <h:outputText value="#{app['login.password']}" />
@@ -80,9 +81,9 @@
                     </b:inputText>
                 </b:column>
 
-            </p:row>
+            </b:row>
 
-            <p:row>
+            <b:row>
                 <b:column medium-screen="3"  >
                     <p:outputLabel  value="#{cc.attrs.labelone}"  rendered="#{cc.attrs.showone}" />
                 </b:column>
@@ -110,9 +111,9 @@
 
                     </b:selectOneMenu>
                 </b:column>
-            </p:row>
+            </b:row>
             
-            <p:row>
+            <b:row>
                 <b:column medium-screen="3"  >
                     <p:outputLabel  value="#{cc.attrs.labeltwo}"  rendered="#{cc.attrs.showtwo}" />
                 </b:column>
@@ -140,23 +141,22 @@
 
                     </b:selectOneMenu>
                 </b:column>
-            </p:row>
+            </b:row>
             
             
             
 
-            <p:row>
+            <b:row>
                 <b:column span="8" >
-                    <p:commandButton look="primary btn-block" value="#{app['button.login']}" 
+                    <b:commandButton look="primary btn-block" value="#{app['button.login']}" 
                                      action="#{cc.attrs.dologin}"
-                                      onerror="jmoordbjsf_remotecommand_login()"
+                         
                                      icon="log-in" size="lg"
                                      update="#{cc.attrs.update}"/>
-                    
-                     <p:remoteCommand name="jmoordbjsf_remotecommand_login"  action="#{loginController.execute}" />
+       
                 </b:column>
 
-            </p:row>
+            </b:row>
         </b:panel>
 
     </composite:implementation>
