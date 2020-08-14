@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/14/2020, 9:08:46 a. m.
+    Author     : avbravo
+*/
+
+
+/*
+para componentes <p:menuButton 
+por ejemplo de colores
+https://materializecss.com/color.html
+ <p:menuButton value="#{loginController.user.name}" class="dropdown-content" styleClass="pmenuButtonPinkDarken3">
+*/
+
+
+/*
+Banderas
+*/
+.panama{
+        icon: url("../resources/jmoordbjsf/banderas/panama.png")  no-repeat !important;
+            height: 25px;
+            width: 25px;
+        }
+        
+.alemania{
+     icon: url("../resources/jmoordbjsf/banderas/alemania.png")  no-repeat !important;
+    height: 25px;
+    width: 25px;
+}
+.brasil{
+     icon: url("../resources/jmoordbjsf/banderas/brasil.png")  no-repeat !important;
+    height: 25px;
+    width: 25px;
+}
+
+.china{
+     icon: url("../resources/jmoordbjsf/banderas/china.png")  no-repeat !important;
+    height: 25px;
+    width: 25px;
+}
+
+  .espana{
+     icon: url("../resources/jmoordbjsf/banderas/espana.png")  no-repeat !important;
+    height: 25px;
+    width: 25px;
+}      
+ 
+  .estadosunidos{
+     icon: url("../resources/jmoordbjsf/banderas/estadosunidos.png")  no-repeat !important;
+    height: 25px;
+    width: 25px;
+}      
+    
+
+  .francia{
+     icon: url("../resources/jmoordbjsf/banderas/francia.png")  no-repeat !important;
+    height: 25px;
+    width: 25px;
+}  
+
+ 

@@ -45,7 +45,7 @@ left del menu debe ser un color dark 3 para que se note la diferencia
 */
 .pmenuButton .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
                 background-color: #757575  !important;  
-                background: #ad1457  !important;
+                background: #757575  !important;
                 border: 1px solid #757575;
                 color: #E3E3E3;
                 font-weight: normal;
