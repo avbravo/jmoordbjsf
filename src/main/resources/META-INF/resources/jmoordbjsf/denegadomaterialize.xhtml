@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui">
+    <composite:interface >
+        <composite:attribute name="rendered" default="false" />
+    </composite:interface>
+    <composite:implementation>
+
+
+        <h:form rendered="#{cc.attrs.rendered}">
+
+                                <div class="row">
+                                    <div id="site-layout-example-top" class="col s12">
+                                        <p class="flat-text-logo center white-text caption-uppercase"><p:outputLabel value="#{app['label.notieneprivilegios']}"/></p>
+                                    </div>
+                                    <div id="site-layout-example-right" class="col s12 m12 l12">
+                                        <div class="row center">
+                                            <h1 class="text-long-shadow col s12"><p:outputLabel value="#{app['title.accesodenegado']}"/></h1>
+                                        </div>
+                                        <div class="row center">
+                                            <p class="center white-text col s12">I<p:outputLabel value="#{app['label.notieneprivilegios']}"/></p>
+                                            <p class="center s12">
+                                                <!--										<button onclick="goBack()"
+                                                                                                                                        class="btn waves-effect waves-light">Back</button>-->
+                                            </p>
+                                            <a href="login.xhtml" class="btn waves-effect waves-light"><p:outputLabel value="#{app['button.login']}"/> </a>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </h:form>
+    </composite:implementation>
+
+</html>
