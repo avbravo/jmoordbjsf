@@ -59,10 +59,10 @@
 
 
 
-                <p:commandButton   iconAwesome="fa-step-backward" 
+                <p:commandButton   icon="fafa-step-backward" 
                                    styleClass="ui-priority-primary"
                                    title="#{app['button.first']}" 
-                                   look="primary"
+                                   
                                    oncomplete="remoteshowall();"
                                    action="#{cc.attrs.controller[cc.attrs.first]}"
                                    update=":form:dataTable " > 
@@ -70,30 +70,30 @@
                     </p:commandButton>
 
 
-                <p:commandButton   iconAwesome="fa-caret-left" 
+                <p:commandButton   icon="fafa-caret-left" 
                                    styleClass="ui-priority-primary"
                                    title="#{app['button.back']}" 
-                                   look="primary"
+                                   
                                    oncomplete="remoteshowall();"
                                    action="#{cc.attrs.controller[cc.attrs.back]}"
                                    update=":form:dataTable " > 
 
                 </p:commandButton>
 
-                <p:commandButton   iconAwesome="fa-play"  
+                <p:commandButton   icon="fafa-play"  
                                    title="#{app['button.next']}" 
                                    oncomplete="remoteshowall();"
                                    action="#{cc.attrs.controller[cc.attrs.next]}" 
-                                   look="primary"
+                                   
                                    update=":form:dataTable " > 
 
 
                 </p:commandButton>
 
-                <p:commandButton  iconAwesome="fa-step-forward"  
+                <p:commandButton  icon="fafa-step-forward"  
                                   title="#{app['button.last']}" 
                                   oncomplete="remoteshowall();"
-                                  look="primary"
+                                  
                                   action="#{cc.attrs.controller[cc.attrs.last]}"  
                                   update=":form:dataTable " > 
 
@@ -103,7 +103,7 @@
                 <p:selectOneMenu id="pages"
 
                                  value="#{cc.attrs.page}"                                                  
-                                 colMd="1"
+                                  
                                  onchange="#{cc.attrs.skip}"
                                  oncomplete="remoteshowall();"
                                  update=":form:dataTable" 
@@ -113,10 +113,10 @@
 
                 </p:selectOneMenu> 
 
-                <p:commandButton iconAwesome="fa-file-o"  
+                <p:commandButton icon="fafa-file-o"  
                                  title="#{app['button.new']}"   
                                  action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
-                                 look="primary"
+                                 
                                  rendered="#{cc.attrs.renderedNew}"
                                  oncomplete="remotecontent()">
 
@@ -125,19 +125,19 @@
 
 
 
-                <p:commandButton iconAwesome="fa-print"                                                                                                         
+                <p:commandButton icon="fafa-print"                                                                                                         
                                  title="#{app['button.print']}"    
                                  rendered="#{cc.attrs.renderedPrint}"  
                                  action="#{cc.attrs.controller[cc.attrs.printAll]}"  
                                  ajax="false"
-                                 look="primary"
+                                 
                                  style="width:60px"/> 
 
 
-                <p:commandButton  iconAwesome="fa-list-alt"                                                
+                <p:commandButton  icon="fafa-list-alt"                                                
                                   action="#{cc.attrs.controller[cc.attrs.clear]}"     
                                   rendered="#{cc.attrs.renderedClear}"    
-                                  look="primary"
+                                  
                                   title="#{app['button.all']}"
                                   update=":form:dataTable :form:content"
                                   oncomplete="remoteshowall()"
@@ -148,11 +148,11 @@
                 </p:commandButton>
 
 
-                <p:commandButton  look="primary"
+                <p:commandButton  
                                   title="#{app['button.search']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedSearch}" 
-                                  iconAwesome="fa-search" 
+                                  icon="fafa-search" 
                                   update=":form:dataTable :form:content"
                                   id="paginatorcommandbuttonsearch"
                                   oncomplete="PF('searchDialog').show();" />
@@ -162,7 +162,7 @@
                                   title="#{app['button.delete']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedDeleted}" 
-                                  iconAwesome="fa-trash-o" 
+                                  icon="fafa-trash-o" 
                                   update=":form:dataTable :form:content, :form:deleteListDetail"
                                   id="paginatorcommandbuttondeleted"
                                   oncomplete="PF('deleteListDialog').show();" />
