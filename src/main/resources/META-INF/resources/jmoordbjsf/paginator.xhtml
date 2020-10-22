@@ -59,7 +59,7 @@
 
 
 
-                <p:commandButton   icon="fafa-step-backward" 
+                <p:commandButton   icon="fa fa-step-backward" 
                                    styleClass="ui-priority-primary"
                                    title="#{app['button.first']}" 
                                    
@@ -70,7 +70,7 @@
                     </p:commandButton>
 
 
-                <p:commandButton   icon="fafa-caret-left" 
+                <p:commandButton   icon="fa fa-caret-left" 
                                    styleClass="ui-priority-primary"
                                    title="#{app['button.back']}" 
                                    
@@ -80,7 +80,7 @@
 
                 </p:commandButton>
 
-                <p:commandButton   icon="fafa-play"  
+                <p:commandButton   icon="fa fa-play"  
                                    title="#{app['button.next']}" 
                                    oncomplete="remoteshowall();"
                                    action="#{cc.attrs.controller[cc.attrs.next]}" 
@@ -90,7 +90,7 @@
 
                 </p:commandButton>
 
-                <p:commandButton  icon="fafa-step-forward"  
+                <p:commandButton  icon="fa fa-step-forward"  
                                   title="#{app['button.last']}" 
                                   oncomplete="remoteshowall();"
                                   
@@ -113,7 +113,7 @@
 
                 </p:selectOneMenu> 
 
-                <p:commandButton icon="fafa-file-o"  
+                <p:commandButton icon="fa fa-file-o"  
                                  title="#{app['button.new']}"   
                                  action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
                                  
@@ -125,7 +125,7 @@
 
 
 
-                <p:commandButton icon="fafa-print"                                                                                                         
+                <p:commandButton icon="fa fa-print"                                                                                                         
                                  title="#{app['button.print']}"    
                                  rendered="#{cc.attrs.renderedPrint}"  
                                  action="#{cc.attrs.controller[cc.attrs.printAll]}"  
@@ -134,7 +134,7 @@
                                  style="width:60px"/> 
 
 
-                <p:commandButton  icon="fafa-list-alt"                                                
+                <p:commandButton  icon="fa fa-list-alt"                                                
                                   action="#{cc.attrs.controller[cc.attrs.clear]}"     
                                   rendered="#{cc.attrs.renderedClear}"    
                                   
@@ -152,7 +152,7 @@
                                   title="#{app['button.search']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedSearch}" 
-                                  icon="fafa-search" 
+                                  icon="fa fa-search" 
                                   update=":form:dataTable :form:content"
                                   id="paginatorcommandbuttonsearch"
                                   oncomplete="PF('searchDialog').show();" />
@@ -162,7 +162,7 @@
                                   title="#{app['button.delete']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedDeleted}" 
-                                  icon="fafa-trash-o" 
+                                  icon="fa fa-trash-o" 
                                   update=":form:dataTable :form:content, :form:deleteListDetail"
                                   id="paginatorcommandbuttondeleted"
                                   oncomplete="PF('deleteListDialog').show();" />
