@@ -59,7 +59,7 @@
 
 
 
-                <b:commandButton   iconAwesome="fa-step-backward" 
+                <p:commandButton   iconAwesome="fa-step-backward" 
                                    styleClass="ui-priority-primary"
                                    title="#{app['button.first']}" 
                                    look="primary"
@@ -67,10 +67,10 @@
                                    action="#{cc.attrs.controller[cc.attrs.first]}"
                                    update=":form:dataTable " > 
 
-                </b:commandButton>
+                    </p:commandButton>
 
 
-                <b:commandButton   iconAwesome="fa-caret-left" 
+                <p:commandButton   iconAwesome="fa-caret-left" 
                                    styleClass="ui-priority-primary"
                                    title="#{app['button.back']}" 
                                    look="primary"
@@ -78,9 +78,9 @@
                                    action="#{cc.attrs.controller[cc.attrs.back]}"
                                    update=":form:dataTable " > 
 
-                </b:commandButton>
+                </p:commandButton>
 
-                <b:commandButton   iconAwesome="fa-play"  
+                <p:commandButton   iconAwesome="fa-play"  
                                    title="#{app['button.next']}" 
                                    oncomplete="remoteshowall();"
                                    action="#{cc.attrs.controller[cc.attrs.next]}" 
@@ -88,9 +88,9 @@
                                    update=":form:dataTable " > 
 
 
-                </b:commandButton>
+                </p:commandButton>
 
-                <b:commandButton  iconAwesome="fa-step-forward"  
+                <p:commandButton  iconAwesome="fa-step-forward"  
                                   title="#{app['button.last']}" 
                                   oncomplete="remoteshowall();"
                                   look="primary"
@@ -98,9 +98,9 @@
                                   update=":form:dataTable " > 
 
 
-                </b:commandButton>
+                </p:commandButton>
 
-                <b:selectOneMenu id="pages"
+                <p:selectOneMenu id="pages"
 
                                  value="#{cc.attrs.page}"                                                  
                                  colMd="1"
@@ -111,9 +111,9 @@
 
                     <f:selectItems  value="#{cc.attrs.pages}" />
 
-                </b:selectOneMenu> 
+                </p:selectOneMenu> 
 
-                <b:commandButton iconAwesome="fa-file-o"  
+                <p:commandButton iconAwesome="fa-file-o"  
                                  title="#{app['button.new']}"   
                                  action="#{cc.attrs.controller[cc.attrs.prepareGoNew]}"  
                                  look="primary"
@@ -121,11 +121,11 @@
                                  oncomplete="remotecontent()">
 
                     <f:attribute name="url" value="#{cc.attrs.url}"/>
-                </b:commandButton>
+                </p:commandButton>
 
 
 
-                <b:commandButton iconAwesome="fa-print"                                                                                                         
+                <p:commandButton iconAwesome="fa-print"                                                                                                         
                                  title="#{app['button.print']}"    
                                  rendered="#{cc.attrs.renderedPrint}"  
                                  action="#{cc.attrs.controller[cc.attrs.printAll]}"  
@@ -134,7 +134,7 @@
                                  style="width:60px"/> 
 
 
-                <b:commandButton  iconAwesome="fa-list-alt"                                                
+                <p:commandButton  iconAwesome="fa-list-alt"                                                
                                   action="#{cc.attrs.controller[cc.attrs.clear]}"     
                                   rendered="#{cc.attrs.renderedClear}"    
                                   look="primary"
@@ -145,10 +145,10 @@
                     <f:ajax />
 
                     <f:attribute name="url" value="#{cc.attrs.url}"/>
-                </b:commandButton>
+                </p:commandButton>
 
 
-                <b:commandButton  look="primary"
+                <p:commandButton  look="primary"
                                   title="#{app['button.search']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedSearch}" 
@@ -158,7 +158,7 @@
                                   oncomplete="PF('searchDialog').show();" />
                 
                 
-                <b:commandButton  look="danger"
+                <p:commandButton  look="danger"
                                   title="#{app['button.delete']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedDeleted}" 
@@ -171,7 +171,7 @@
                
 
                
-                <b:selectOneMenu colMd="1"
+                <p:selectOneMenu 
                                  value="#{cc.attrs.rowPage}"
                                  onchange="#{cc.attrs.skip}"
                                  oncomplete="remoteshowall();"
@@ -184,7 +184,7 @@
                     <f:selectItem itemLabel="#{app['rows.l5']}" itemValue="5" />
                     <f:selectItem itemLabel="#{app['rows.l40']}" itemValue="40" />
 
-                </b:selectOneMenu>
+                </p:selectOneMenu>
             </p:toolbarGroup>
         </p:toolbar>
 
