@@ -53,28 +53,28 @@
                                 return false;
                             }">
                     <f:facet name="prepend">
-                        <b:commandButton  iconAwesome="fa-eraser"         
-                                     look="primary"
+                        <p:commandButton  icon="fa fa-eraser"         
+                                    
                                           title="#{app['button.clear']}"
                                           
                                           action="#{cc.attrs.controller[cc.attrs.prepareNew]}"
                                           update=":form:content" > 
                             <f:ajax />
                            
-                        </b:commandButton>
+                        </p:commandButton>
 
                     </f:facet>
                     <f:facet name="append">
-                        <b:commandButton immediate="true"
+                        <p:commandButton immediate="true"
                                          look="primary"
-                                         iconAwesome="fa-share" 
+                                         icon="fa fa-share" 
                                          rendered="#{cc.attrs.rendererList}" 
                                          title="#{app['button.search']}" 
                                         action="#{cc.attrs.controller[cc.attrs.prepareGoList]}">
                             
                             <f:attribute name="url" value="#{cc.attrs.url}"/>
                             
-                        </b:commandButton>
+                        </p:commandButton>
 
                     </f:facet>
                 </b:inputText>
