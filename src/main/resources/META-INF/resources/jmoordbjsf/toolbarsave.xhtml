@@ -7,12 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
-<composite:attribute name="controller" type="java.lang.Object"/> 
-       
+        <composite:attribute name="controller" type="java.lang.Object"/> 
+
         <composite:attribute name="save"  default="save" />
-        
-         <composite:attribute name="rendered" />
-        
+
+        <composite:attribute name="rendered" />
+
 
 
     </composite:interface>
@@ -21,12 +21,10 @@
 
         <p:commandButton rendered="#{cc.attrs.rendered}"                          
                          value="#{app['button.save']}"
-                         icon="FA fa-floppy-o"
+                         icon="fa fa-floppy-o"
                          title="#{app['button.save']}"
-
                          action="#{cc.attrs.controller[cc.attrs.save]}"
                          update=":form:content" > 
-           
 
         </p:commandButton>
 

@@ -20,6 +20,7 @@
 
         <composite:attribute name="skip" />
         <composite:attribute name="prepareGoNew" default="prepareGoNew" />
+        <composite:attribute name="prepareGoNewDialog" default="prepareGoNewDialog" />
         <composite:attribute name="renderedNew" default="true"/>
         <composite:attribute name="renderedClear" default="true"/>
         <composite:attribute name="renderedPrint" default="true"/>
@@ -105,8 +106,7 @@
                                  value="#{cc.attrs.page}"                                                  
                                   
                                  onchange="#{cc.attrs.skip}"
-                                 oncomplete="remoteshowall();"
-                                 update=":form:dataTable" 
+                                
                                  >
 
                     <f:selectItems  value="#{cc.attrs.pages}" />
@@ -122,7 +122,19 @@
 
                     <f:attribute name="url" value="#{cc.attrs.url}"/>
                 </p:commandButton>
+                
+                
+                <p:commandButton icon="fa fa-file-o"  
+                                 title="#{app['button.new']}"   
+                                 action="#{cc.attrs.controller[cc.attrs.prepareGoNewDialog]}"  
+                          process="@this,:form:panelGroupNew"
+                                 rendered="#{cc.attrs.renderedNew}"
+                                 oncomplete="PF('dialogNew').show();" update=":form:panelGroupNew">
 
+                    <f:attribute name="url" value="#{cc.attrs.url}"/>
+                </p:commandButton>
+
+            
 
 
                 <p:commandButton icon="fa fa-print"                                                                                                         
@@ -158,7 +170,7 @@
                                   oncomplete="PF('searchDialog').show();" />
                 
                 
-                <p:commandButton  look="danger"
+                <p:commandButton  
                                   title="#{app['button.delete']}"
                                   immediate="true"
                                   rendered="#{cc.attrs.renderedDeleted}" 
@@ -174,8 +186,7 @@
                 <p:selectOneMenu 
                                  value="#{cc.attrs.rowPage}"
                                  onchange="#{cc.attrs.skip}"
-                                 oncomplete="remoteshowall();"
-                                 update=":form:dataTable" 
+                               
                                  >
 
                     <f:selectItem itemLabel="#{app['rows.l25']}" itemValue="25" />
