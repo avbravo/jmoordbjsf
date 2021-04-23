@@ -9,7 +9,8 @@
     <composite:interface >
         <composite:attribute name="controller" type="java.lang.Object"/>
         <composite:attribute name="entity" type="java.lang.Object"/>
-        <composite:attribute name="autoUpdate" default=":form:dataTable,:form"/>
+        <!--<composite:attribute name="autoUpdate" default=":form:dataTable,:form"/>-->
+        <composite:attribute name="autoUpdate" default=":form:dataTable"/>
         <composite:attribute name="updateDatatable" default=":form:dataTable"/>
         <composite:attribute name="id" default="paginator"/>
         <composite:attribute name="pageforskip" default="pageforskip"/>
@@ -60,6 +61,7 @@
 
                 <p:selectOneMenu id="pagesSelectOneMenuPaginator"                              
                                  value ="#{cc.attrs.controller.loadPaginator(cc.attrs.entity).pageforskip}"
+                                  panelStyle="width:180px" effect="fade"
                                  >
                     <f:selectItems  value="#{cc.attrs.controller.loadPaginator(cc.attrs.entity).pagesPaginator}" />
 
