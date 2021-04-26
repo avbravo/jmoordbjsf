@@ -25,7 +25,7 @@
                       required="#{cc.attrs.required}"  
                       span="#{cc.attrs.span}" 
                       mask="email"
-                      validatorMessage="#{app['label.new']}"
+                      validatorMessage="#{app['validation.emailnotvalid']}"
                       requiredMessage="#{cc.attrs.label} #{app['info.required']}">
             <f:validateRegex
                 pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
