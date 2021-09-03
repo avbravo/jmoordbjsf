@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <cc:interface >
+
+
+        <cc:attribute name="id" />
+        <cc:attribute name="label" />
+        <cc:attribute name="timePicker" type="java.lang.Object"/>
+
+
+
+
+        <cc:attribute name="css"  default="selectOneMenuLabelColorWhite"/>
+        <cc:attribute name="showSeconds" default="false" />
+
+
+
+
+
+
+    </cc:interface>
+    <cc:implementation>
+
+        <div class="col s1">
+            <p:outputLabel  value="#{cc.attrs.label}"/>
+        </div>
+
+
+
+
+        <div class="col s3">
+
+            <!--<p:panelGrid columns="4" styleClass="ui-panelgrid-blank form-group" style="border:0px none; background-color:transparent;" >-->
+
+
+            <p:selectOneMenu  value="#{cc.attrs.timePicker.hour}"
+
+                              class="#{cc.attrs.css}"
+                              >
+
+                <f:selectItem itemLabel="00" itemValue="00"/>
+                <f:selectItem itemLabel="01" itemValue="01"/>
+                <f:selectItem itemLabel="02" itemValue="02"/>
+                <f:selectItem itemLabel="03" itemValue="03"/>
+                <f:selectItem itemLabel="04" itemValue="04"/>
+                <f:selectItem itemLabel="05" itemValue="05"/>
+                <f:selectItem itemLabel="06" itemValue="06"/>
+                <f:selectItem itemLabel="07" itemValue="07"/>
+                <f:selectItem itemLabel="08" itemValue="08"/>
+                <f:selectItem itemLabel="09" itemValue="09"/>
+                <f:selectItem itemLabel="10" itemValue="10"/>
+                <f:selectItem itemLabel="11" itemValue="11"/>
+                <f:selectItem itemLabel="12" itemValue="12"/>
+            </p:selectOneMenu>
+        </div>
+        <div class="col s3">
+            <p:selectOneMenu id="selectOneMenuMinutes" value="#{cc.attrs.timePicker.minute}"
+             
+  class="#{cc.attrs.css}"
+                           
+                             >
+                <f:selectItem itemLabel="00" itemValue="00"/>
+                <f:selectItem itemLabel="01" itemValue="01"/>
+                <f:selectItem itemLabel="02" itemValue="02"/>
+                <f:selectItem itemLabel="03" itemValue="03"/>
+                <f:selectItem itemLabel="04" itemValue="04"/>
+                <f:selectItem itemLabel="05" itemValue="05"/>
+                <f:selectItem itemLabel="06" itemValue="06"/>
+                <f:selectItem itemLabel="07" itemValue="07"/>
+                <f:selectItem itemLabel="08" itemValue="08"/>
+                <f:selectItem itemLabel="09" itemValue="09"/>
+                <f:selectItem itemLabel="10" itemValue="10"/>
+                <f:selectItem itemLabel="11" itemValue="11"/>
+                <f:selectItem itemLabel="12" itemValue="12"/>
+                <f:selectItem itemLabel="13" itemValue="13"/>
+                <f:selectItem itemLabel="14" itemValue="14"/>
+                <f:selectItem itemLabel="15" itemValue="15"/>
+                <f:selectItem itemLabel="16" itemValue="16"/>
+                <f:selectItem itemLabel="17" itemValue="17"/>
+                <f:selectItem itemLabel="18" itemValue="18"/>
+                <f:selectItem itemLabel="19" itemValue="19"/>
+                <f:selectItem itemLabel="20" itemValue="20"/>
+                <f:selectItem itemLabel="21" itemValue="21"/>
+                <f:selectItem itemLabel="22" itemValue="22"/>
+                <f:selectItem itemLabel="23" itemValue="23"/>
+                <f:selectItem itemLabel="24" itemValue="24"/>
+                <f:selectItem itemLabel="25" itemValue="25"/>
+                <f:selectItem itemLabel="26" itemValue="26"/>
+                <f:selectItem itemLabel="27" itemValue="27"/>
+                <f:selectItem itemLabel="28" itemValue="28"/>
+                <f:selectItem itemLabel="29" itemValue="29"/>
+                <f:selectItem itemLabel="30" itemValue="30"/>
+                <f:selectItem itemLabel="31" itemValue="31"/>
+                <f:selectItem itemLabel="32" itemValue="32"/>
+                <f:selectItem itemLabel="33" itemValue="33"/>
+                <f:selectItem itemLabel="34" itemValue="34"/>
+                <f:selectItem itemLabel="35" itemValue="35"/>
+                <f:selectItem itemLabel="36" itemValue="36"/>
+                <f:selectItem itemLabel="37" itemValue="37"/>
+                <f:selectItem itemLabel="38" itemValue="38"/>
+                <f:selectItem itemLabel="39" itemValue="39"/>
+                <f:selectItem itemLabel="40" itemValue="40"/>
+                <f:selectItem itemLabel="41" itemValue="41"/>
+                <f:selectItem itemLabel="42" itemValue="42"/>
+                <f:selectItem itemLabel="43" itemValue="43"/>
+                <f:selectItem itemLabel="44" itemValue="44"/>
+                <f:selectItem itemLabel="45" itemValue="45"/>
+                <f:selectItem itemLabel="46" itemValue="46"/>
+                <f:selectItem itemLabel="47" itemValue="47"/>
+                <f:selectItem itemLabel="48" itemValue="48"/>
+                <f:selectItem itemLabel="49" itemValue="49"/>
+                <f:selectItem itemLabel="50" itemValue="50"/>
+                <f:selectItem itemLabel="51" itemValue="51"/>
+                <f:selectItem itemLabel="52" itemValue="52"/>
+                <f:selectItem itemLabel="53" itemValue="53"/>
+                <f:selectItem itemLabel="54" itemValue="54"/>
+                <f:selectItem itemLabel="55" itemValue="55"/>
+                <f:selectItem itemLabel="56" itemValue="56"/>
+                <f:selectItem itemLabel="57" itemValue="57"/>
+                <f:selectItem itemLabel="58" itemValue="58"/>
+                <f:selectItem itemLabel="59" itemValue="59"/>
+            </p:selectOneMenu>
+
+        </div>
+        <div class="col s3">
+            <p:selectOneMenu value="#{cc.attrs.timePicker.seconds}"
+                             rendered="#{cc.attrs.showSeconds}"
+                             class="#{cc.attrs.css}"
+                             >
+                <f:selectItem itemLabel="00" itemValue="00"/>
+                <f:selectItem itemLabel="01" itemValue="01"/>
+                <f:selectItem itemLabel="02" itemValue="02"/>
+                <f:selectItem itemLabel="03" itemValue="03"/>
+                <f:selectItem itemLabel="04" itemValue="04"/>
+                <f:selectItem itemLabel="05" itemValue="05"/>
+                <f:selectItem itemLabel="06" itemValue="06"/>
+                <f:selectItem itemLabel="07" itemValue="07"/>
+                <f:selectItem itemLabel="08" itemValue="08"/>
+                <f:selectItem itemLabel="09" itemValue="09"/>
+                <f:selectItem itemLabel="10" itemValue="10"/>
+                <f:selectItem itemLabel="11" itemValue="11"/>
+                <f:selectItem itemLabel="12" itemValue="12"/>
+                <f:selectItem itemLabel="13" itemValue="13"/>
+                <f:selectItem itemLabel="14" itemValue="14"/>
+                <f:selectItem itemLabel="15" itemValue="15"/>
+                <f:selectItem itemLabel="16" itemValue="16"/>
+                <f:selectItem itemLabel="17" itemValue="17"/>
+                <f:selectItem itemLabel="18" itemValue="18"/>
+                <f:selectItem itemLabel="19" itemValue="19"/>
+                <f:selectItem itemLabel="20" itemValue="20"/>
+                <f:selectItem itemLabel="21" itemValue="21"/>
+                <f:selectItem itemLabel="22" itemValue="22"/>
+                <f:selectItem itemLabel="23" itemValue="23"/>
+                <f:selectItem itemLabel="24" itemValue="24"/>
+                <f:selectItem itemLabel="25" itemValue="25"/>
+                <f:selectItem itemLabel="26" itemValue="26"/>
+                <f:selectItem itemLabel="27" itemValue="27"/>
+                <f:selectItem itemLabel="28" itemValue="28"/>
+                <f:selectItem itemLabel="29" itemValue="29"/>
+                <f:selectItem itemLabel="30" itemValue="30"/>
+                <f:selectItem itemLabel="31" itemValue="31"/>
+                <f:selectItem itemLabel="32" itemValue="32"/>
+                <f:selectItem itemLabel="33" itemValue="33"/>
+                <f:selectItem itemLabel="34" itemValue="34"/>
+                <f:selectItem itemLabel="35" itemValue="35"/>
+                <f:selectItem itemLabel="36" itemValue="36"/>
+                <f:selectItem itemLabel="37" itemValue="37"/>
+                <f:selectItem itemLabel="38" itemValue="38"/>
+                <f:selectItem itemLabel="39" itemValue="39"/>
+                <f:selectItem itemLabel="40" itemValue="40"/>
+                <f:selectItem itemLabel="41" itemValue="41"/>
+                <f:selectItem itemLabel="42" itemValue="42"/>
+                <f:selectItem itemLabel="43" itemValue="43"/>
+                <f:selectItem itemLabel="44" itemValue="44"/>
+                <f:selectItem itemLabel="45" itemValue="45"/>
+                <f:selectItem itemLabel="46" itemValue="46"/>
+                <f:selectItem itemLabel="47" itemValue="47"/>
+                <f:selectItem itemLabel="48" itemValue="48"/>
+                <f:selectItem itemLabel="49" itemValue="49"/>
+                <f:selectItem itemLabel="50" itemValue="50"/>
+                <f:selectItem itemLabel="51" itemValue="51"/>
+                <f:selectItem itemLabel="52" itemValue="52"/>
+                <f:selectItem itemLabel="53" itemValue="53"/>
+                <f:selectItem itemLabel="54" itemValue="54"/>
+                <f:selectItem itemLabel="55" itemValue="55"/>
+                <f:selectItem itemLabel="56" itemValue="56"/>
+                <f:selectItem itemLabel="57" itemValue="57"/>
+                <f:selectItem itemLabel="58" itemValue="58"/>
+                <f:selectItem itemLabel="59" itemValue="59"/>
+            </p:selectOneMenu>
+        </div>
+        <div class="col s3">
+
+            <p:selectOneMenu  value="#{cc.attrs.timePicker.ampm}"
+                              class="#{cc.attrs.css}"
+                              >
+
+                <f:selectItem itemLabel="AM" itemValue="AM"/>
+                <f:selectItem itemLabel="PM" itemValue="PM"/>
+            </p:selectOneMenu>     
+
+
+
+        </div>     
+
+
+
+       
+    </cc:implementation>
+</html>
