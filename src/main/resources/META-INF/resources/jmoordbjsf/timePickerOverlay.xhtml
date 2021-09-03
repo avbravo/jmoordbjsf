@@ -10,6 +10,7 @@
 
 
         <cc:attribute name="id" />
+        <cc:attribute name="classcols" default="col s2" />
         <cc:attribute name="timePicker" type="java.lang.Object"/>
 
 
@@ -26,18 +27,16 @@
     </cc:interface>
     <cc:implementation>
 
-        <div class="col s1">
+        <!--<div class="col s2">-->
+        <div class="#{cc.attrs.classcols}" >
             <p:outputLabel  value="#{cc.attrs.label}"/>
         </div>
-        <div class="col s2">
-            <p:outputLabel  value="#{cc.attrs.timePicker.hour}:#{cc.attrs.timePicker.minute}:#{cc.attrs.timePicker.second}  #{cc.attrs.timePicker.ampm}">
-
-            </p:outputLabel>
+        
+        <div class="#{cc.attrs.classcols}">
+                <p:commandButton id="button#{cc.attrs.id}" type="button"  icon="pi pi-clock" 
+                                 value="#{cc.attrs.timePicker.hour}:#{cc.attrs.timePicker.minute}:#{cc.attrs.timePicker.second}  #{cc.attrs.timePicker.ampm}"
+                                 />
         </div>
-        <div class="col s1">
-            <p:commandButton id="button#{cc.attrs.id}" type="button"  icon="pi pi-clock" />
-        </div>
-
 
 
         <div class="col s1">
