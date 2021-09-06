@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+       
+        <cc:attribute name="header" default="View"/>
+        <cc:attribute name="label"  />
+        
+        <cc:attribute name="panelGroudId" default=""/>
+        <cc:attribute name="field" default=""/>
+        <cc:attribute name="widgetVar" />
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:panelGroup id= "#{cc.attrs.panelGroudId}">
+
+            <p:dialog header="#{cc.attrs.header}"  showEffect="fade"
+                      modal="true"
+                      dynamic="true"
+                      widgetVar="#{cc.attrs.widgetVar}" responsive="true"
+                      width="50%"
+                      style="width:20%;margin:0 auto"
+                      position="center center" onShow="PF('#{cc.attrs.widgetVar}').initPosition()"
+                      resizable="false"
+                      >
+
+
+
+                <p:outputPanel id="manage-evidencias-content" class="ui-fluid">
+
+                    <p:outputPanel >
+                        <div class="p-field">
+                            <p:outputLabel value="#{app['field.numbersimbolo']}"/>
+                            <p:outputLabel  value="#{cc.attrs.label}"/>
+                        </div>
+
+
+
+
+                        <p:outputPanel rendered="#{jMoordbMediaManager.existsFile(cc.attrs.field) }">
+
+
+                            <div class="p-field">
+                                <p:commandButton  value="#{app['button.download']}" ajax="false"
+                                                 onclick="PrimeFaces.monitorDownload(start, stop);"
+                                                 icon="pi pi-cloud-download" styleClass="p-mr-2"                                                       
+                                                 >
+
+                                    <p:fileDownload  value="#{jMoordbMediaManager.generate(cc.attrs.field)}"/>
+                                </p:commandButton>
+
+                            </div>
+
+                            <p:scrollPanel style="width: 250px; height: 200px" mode="native">
+                                <div class="p-field">
+                                    <p:graphicImage id="image" 
+                                                    width="100%px"
+                                                    height="100%px"   
+                                                    rendered="#{jMoordbMediaManager.isImage(cc.attrs.field)}"
+                                                    value="#{jMoordbMediaManager.generate(cc.attrs.field)}" 
+                                                    stream="false" cache="false" />
+
+
+
+                                </div>
+                                <p:scrollTop target="parent" threshold="100" styleClass="custom-scrolltop" icon="pi pi-arrow-up" />
+                            </p:scrollPanel>
+
+                            <p:outputPanel rendered="#{!jMoordbMediaManager.isImage(cc.attrs.field)}">
+                                <i class="pi pi-exclamation-triangle" style="font-size: 2rem"></i>
+                                <p:outputLabel value="#{app['label.filenotshow']}" rendered="#{!jMoordbMediaManager.isImage(cc.attrs.field)}"/>
+
+                            </p:outputPanel>
+
+                        </p:outputPanel>
+                    </p:outputPanel>
+                </p:outputPanel>
+            </p:dialog>
+        </h:panelGroup>
+    </cc:implementation>
+</html>
