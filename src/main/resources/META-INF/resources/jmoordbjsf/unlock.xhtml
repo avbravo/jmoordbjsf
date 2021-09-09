@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://xmlns.jcp.org/jsf/composite"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -25,7 +26,7 @@
                       dynamic="true"
 
                       widgetVar="#{cc.attrs.widgetVar}" responsive="true"
-                      width="60%"
+                   styleClass="dialogResponsive"
                       style="width:20%;margin:0 auto"
                       position="center center" onShow="PF('#{cc.attrs.widgetVar}').initPosition()"
                       resizable="false"
@@ -37,7 +38,7 @@
                             <div class="col s2">
                                 <p:outputLabel value="#{msg['field.username']}"/>
                             </div>
-                            <div class="col s5">
+                            <div class="col s9">
                                 <p:inputText value="#{cc.attrs.controller.unlockServices.usernameForUnlock}" id="usernameForUnLock"/>
                             </div>
                         </div>
@@ -45,26 +46,22 @@
                             <div class="col s2">
                                 <p:outputLabel value="#{msg['field.password']}"/>
                             </div>
-                            <div class="col s5">
+                            <div class="col s9">
                                 <p:password value="#{cc.attrs.controller.unlockServices.passwordForUnlock}" id="passwordForUnLock"/>
                             </div>
                         </div>
-                        <div class="row" >
-                            <div class="col s2">
-
-                            </div>
-                            <div class="col s2">
-                                <p:commandButton value="#{app['button.unlock']}"  
+                       
+                    </p:outputPanel>
+                </p:outputPanel>
+                <f:facet name="footer">
+                      <p:commandButton value="#{app['button.unlock']}"  
                                                  styleClass="edit-button rounded-button ui-button-success" 
-                                                 style="width:100%; background-color: #6b0392;"
+                                            
                                                  action="#{cc.attrs.controller.unlockServices.unlock(cc.attrs.position, cc.attrs.widgetVar,cc.attrs.update, cc.attrs.profileList)}" 
                                                  update="#{cc.attrs.update}"
 
                                                  />
-                            </div>
-                        </div>
-                    </p:outputPanel>
-                </p:outputPanel>
+                </f:facet>
             </p:dialog>
         </h:panelGroup>
     </cc:implementation>
