@@ -1,0 +1,401 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+      
+       
+     
+
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+       <div class="row margin">
+                    <div class="col s12 m12 l12 center">
+                        <h:graphicImage rendered="#{!accessController.isForgetPassword}"  library="jmoordbjsf" name="iconos/login.png"  style="width:80px;" class="responsive-img circle"/>
+                        <h:graphicImage rendered="#{accessController.isForgetPassword and !accessController.isSendOtp}"  library="jmoordbjsf" name="iconos/emails240.png"  style="width:80px;" class="responsive-img circle"/>
+                        <p> <h4><p:outputLabel rendered="#{!accessController.isForgetPassword}" class="login titulo" value="#{msg['application.title']}" style="font-weight:bold"/></h4></p>
+                        <p> <p:outputLabel rendered="#{!accessController.isForgetPassword}"  class="textonormal" value="#{app['login.title']}" style="font-weight:bold;color:black"/></p>
+                        <p> <p:outputLabel rendered="#{accessController.isForgetPassword and !accessController.isSendOtp }"  class="textonormal" value="#{app['login.solicitudotp']}" style="font-weight:bold;color:black"/></p>
+                        <p> <p:outputLabel rendered="#{accessController.isForgetPassword and accessController.isSendOtp and !accessController.isValidOtp}"  class="textonormal" value="#{app['opt.emailenviado']}" style="font-weight:bold;color:black"/></p>
+                    </div>
+                </div>
+
+                <h:panelGroup id="verificarlogin">
+                    <h:panelGroup rendered="#{accessController.loggedIn}">
+                        <div class="row">
+                            <p:outputLabel class="fuentetamanor" value="#{msg['login.estalogueado']} #{accessController.user.name} rol: #{accessController.profile.role.role} " />
+                            <p:outputLabel class="fuentetamanor" value="#{msg['login.estaloguedopregunta']}" />
+                        </div>
+                        <div class="row">
+                            <p:commandButton value="#{msg['login.continuar']}"   
+                                             class="btn waves-effect waves-light colornomral"
+                                             action="#{accessController.login()}"                                              
+                                             />
+                            <p:commandButton value="#{msg['login.salir']}" 
+                                             class="btn waves-effect waves-light colornomral" 
+                                             action="#{accessController.logout()}"                                              
+                                             />
+                        </div>
+
+
+                    </h:panelGroup>
+                </h:panelGroup>
+
+                <h:panelGroup rendered="#{!accessController.loggedIn}">
+                    <p:focus />
+
+                    <h:panelGroup rendered="#{!accessController.isForgetPassword}">
+                        <!-- Form Username Input Section -->
+
+                        <h:panelGroup rendered="#{!accessController.isvalidUsername}">
+
+                            <div class="col s12 m12 l12">
+                                <div class="input-field" >
+
+                                    <i class="pi pi-user" style="font-size: 2rem"></i>
+                                </div>
+                                <div class="input-field" >
+
+
+                                    <p:inputText value="#{accessController.username}" required="true"  requiredMessage="#{app['login.username']}"
+                                                 class="validate valid"
+                                                 rendered="#{!accessController.isvalidUsername}" id="username"/>
+
+                                    <p:outputLabel value="#{app['login.username']}" rendered="#{!accessController.isvalidUsername}" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="center">
+                                    <p:commandButton value="#{app['button.next']}"  
+                                                     styleClass="edit-button rounded-button ui-button-success" 
+                                                     style="width:100%; background-color: #6b0392;"
+
+                                                     action="#{accessController.next()}" 
+                                                     update=":form:growl, :form"
+
+                                                     rendered="#{!accessController.isvalidUsername}"
+                                                     />
+                                </div>
+                            </div>
+
+
+                        </h:panelGroup>
+
+
+
+
+                        <!-- Button mext -->
+
+                        <h:panelGroup rendered="#{accessController.isvalidUsername}">
+
+                            <div class="row">
+                                <i class="pi pi-user" style="font-size: 1rem"></i>
+
+                                <p:outputLabel value="#{accessController.user.name}" style="color:black"/>
+                                <p:menuButton value=""   class="dropdown-content"  styleClass="pmenuButton">
+                                    <p:menuitem value="" action="#{accessController.back()}"  update=":form:growl, :form"  >
+                                        <i class="pi pi-angle-left" style="font-size: 2rem"></i>
+                                        <p:outputLabel value="#{app['button.back']}" style="color:#6b0392 ;font-size: 10;" />
+                                    </p:menuitem>
+                                </p:menuButton>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s1"> <i class="pi pi-th-large" style="font-size: 1rem"></i></div>
+                                <div class="col s2">  <p:outputLabel value="#{msg['field.profile']}" style="color:black"/></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col m12">
+                                    <p:selectOneListbox id="profile" value="#{accessController.profile}" 
+                                                        >
+
+                                        <f:selectItems value="#{accessController.profileList}" 
+                                                       var="var" 
+                                                       itemValue="#{var}" itemLabel="#{var.role.role } - #{var.departament.shortname} " />
+
+
+
+
+                                        <p:ajax process="profile" event="change"
+                                                update=":form, :form:growl"
+                                                listener="#{accessController.onProfileChange()}"/>
+                                    </p:selectOneListbox>
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col s12 m12 l12" >
+                                    <p:outputLabel value="#{app['login.password']}" />
+                                    <span class="ui-input-icon-right">
+                                        <button id="commandButtonEye" type="button" onclick="mostrarPasswordGeneral(this, '#form\\:password');" >
+                                            <i class="pi pi-eye" style="font-size: 1rem"></i>
+                                        </button>
+                                        <p:password value="#{accessController.password}" id="password"
+                                                    class="validate valid"
+                                                    />
+                                    </span>
+
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="center">
+
+                                    <p:commandButton value="#{app['button.login']}"  
+                                                     styleClass="edit-button rounded-button ui-button-success" 
+                                                     style="width:100%; background-color: #6b0392;"
+                                                     action="#{accessController.login()}" 
+                                                     update=":form:growl"
+
+                                                     />
+
+                                </div>
+                            </div>
+
+
+
+                        </h:panelGroup>
+
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{accessController.isForgetPassword}">
+
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="input-field" >
+                                    <i class="pi pi-envelope" style="font-size: 2rem"></i>  
+                                </div>
+                                <div class="input-field" >
+
+                                    <p:inputText value="#{accessController.email}"  id="email"
+                                                 rendered="#{!accessController.isSendOtp}"
+                                                 />
+                                    <p:outputLabel value="#{accessController.email}"  id="email2"
+                                                   style="color:black"
+                                                   rendered="#{accessController.isSendOtp}"
+                                                   />
+
+                                    <p:outputLabel value="#{app['login.email']}"  rendered="#{!accessController.isSendOtp}"/>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m12 l12">
+                                <p:commandButton value="#{app['button.sendotp']}"  styleClass="edit-button rounded-button ui-button-success" 
+                                                 style="width:80%; background-color: #4CAF50;"
+                                                 action="#{accessController.sendOtp()}" 
+                                                 rendered="#{!accessController.isSendOtp}"
+                                                 update=":form:growl, :form"
+
+                                                 />
+                            </div>
+
+                        </div>
+                        <h:panelGroup rendered="#{accessController.isSendOtp}">
+
+                            <div class="row">
+                                <div class="col s8 m8 l8">
+                                     <p:outputLabel value="#{app['otp.ingreseotprecibido']}" style="color:black" rendered="#{!accessController.isValidOtp}"/>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col s8 m8 l8">
+                                   
+                                    <div class="input-field" >
+
+
+                                        <p:inputText value="#{accessController.otpRecibido}"  id="optrecibido" rendered="#{!accessController.isValidOtp}"
+                                                    class="validate valid"
+                                                     />
+                                        <p:outputLabel value="#{app['label.otp']}"  rendered="#{!accessController.isValidOtp}"/>
+
+                                        <p:outputLabel value="#{accessController.otpRecibido}" style="color:black" rendered="#{accessController.isValidOtp}"/>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col s4 m4 l4">
+                                    <p:commandButton value="#{app['button.validateotp']}"  styleClass="edit-button rounded-button ui-button-success" 
+                                                     style="width:100%; background-color: #6b0392;"
+                                                     action="#{accessController.validateOtp()}" 
+                                                     process="optrecibido,@this"
+                                                     update=":form:growl, :form"
+
+                                                     rendered="#{!accessController.isValidOtp}"
+                                                     />
+                                </div>
+
+                            </div>
+                        </h:panelGroup>
+
+
+
+                        <h:panelGroup rendered="#{accessController.isValidOtp}">
+                            <h:outputScript>verificarNivel();</h:outputScript>
+                            <div class="row"/>
+                            <div class="row">
+                                <div class="col m12 l12" >
+
+                                    <p:outputLabel value="#{app['label.newpassword']}" />
+                                    <button id="commandButtonEye2" type="button" onclick="mostrarPasswordGeneral(this, '#form\\:newpassword');" >
+                                        <i class="pi pi-eye" style="font-size: 1rem"></i>
+
+                                    </button>
+                                    <p:password value="#{accessController.newPassword}" id="newpassword"  
+                                                title="#{app['label.newpassword']}"
+                                                onkeyup="verificarNivelGeneral(this)"
+                                                redisplay="true" 
+                                                match="repeatpassword"
+                                                validatorMessage="#{msg['field.passwordnomatch']}"
+                                                required="true" requiredMessage="#{msg['error.requerido']} #{msg['field.password']}"
+                                                />
+                                </div>
+                            </div>
+
+                            <div class="grupoinformacion">
+                                <div class="row"> 
+                                    <strong>
+                                        <h:outputText value="#{msg['field.requisitospassword']}"/>
+                                    </strong>
+                                </div>
+
+                                <div class="row"> 
+                                    <span id="hayletraminuscula" class="noenpassword">
+                                        <i class="pi pi-times"></i>
+                                        <h:outputText value="#{msg['field.passwordalmenos']}"/>
+                                        <b> <h:outputText value="#{msg['field.letraminuscula']}"/></b>
+                                    </span>
+                                </div>                                                              
+
+                                <div class="row"> 
+                                    <span id="hayletramayuscula" class="noenpassword">
+                                        <i class="pi pi-times"></i>
+                                        <h:outputText value="#{msg['field.passwordalmenos']}"/>
+                                        <b> <h:outputText value="#{msg['field.letramayuscula']}"/></b>
+                                    </span>
+                                </div>                                                              
+
+                                <div class="row"> 
+                                    <span id="haynumero" class="noenpassword">
+                                        <i class="pi pi-times"></i>
+                                        <h:outputText value="#{msg['field.passwordalmenos']}"/>
+                                        <b> <h:outputText value="#{msg['field.numeropassword']}"/></b>
+                                    </span>
+                                </div>   
+
+                                <div class="row"> 
+                                    <span id="haycaracterespecial" class="noenpassword">
+                                        <i class="pi pi-times"></i>
+                                        <h:outputText value="#{msg['field.passwordalmenos']}"/>
+                                        <b> <h:outputText value="#{msg['field.caracterespecial']}"/></b>
+                                    </span>
+                                </div>   
+
+                                <div class="row"> 
+                                    <span id="haycantidadcaracteres" class="noenpassword">
+                                        <i class="pi pi-times"></i>
+                                        <h:outputText value="#{msg['field.passwordalmenos']}"/>
+                                        <b> <h:outputText value="#{msg['field.cantidadcaracteres']}"/></b>
+                                    </span>
+                                </div>                               
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col m12 l12" >
+                                    <p:outputLabel value="#{app['label.repetirassword']}" />
+                                    <i class="pi pi-lock" style="font-size: 2rem"></i>
+                                    <p:password value="#{accessController.repeatPassword}" id="repeatpassword" 
+                                                redisplay="true" 
+                                                title="#{app['label.repetirpassword']}"
+                                                validator="validarpassword"
+                                                required="true" requiredMessage="#{msg['error.requerido']} #{msg['field.password']}"
+                                                />
+
+
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col m4">
+                                    <p:commandButton value="#{app['button.update']}"  styleClass="edit-button rounded-button ui-button-success" 
+                                                     title="#{app['button.update']}"
+                                                     style="background-color: #6b0392;"
+                                                     action="#{accessController.updatePassword()}"    
+                                                     icon="pi pi-save"
+
+                                                     update=":form:growl, :form"
+                                                     />
+                                </div>
+
+                            </div>
+
+                        </h:panelGroup>
+
+
+                    </h:panelGroup>
+
+                    <div class="row">
+                        <div class="col m8">
+                            <p:outputLabel value="#{app['button.forgetpassword']}" style="color:black"/>
+                        </div>
+                        <div class="col m4" style="font-size:14px;">
+                            <p:toggleSwitch value="#{accessController.isForgetPassword}" >
+                                <p:ajax update=":form:growl,form" listener="#{accessController.changeForgetPassword()}" />
+                            </p:toggleSwitch>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m8">
+
+                            <p:outputLabel rendered="#{!accessController.isForgetPassword}" value="#{app['label.version']}" style="color:black;font-size: 15px"/>
+                        </div>
+                        <div class="col m4" style="font-size:14px;">
+                            <p:outputLabel rendered="#{!accessController.isForgetPassword}" value= "#{accessController.applicativeVersion.get()}" style="color:black"/>
+                        </div>
+                    </div>
+
+
+
+
+                </h:panelGroup>
+
+
+
+    </composite:implementation>
+
+</html>
