@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/14/2020, 11:06:46 a. m.
+    Author     : avbravo
+
+Colores
+https://materializecss.com/color.html
+*/
+
+/*
+
+top
+
+*/
+:root{
+    --oscuro: #689f38;
+    --claro: #9ccc65;
+}
+
+.nav-wrapper {
+    background-color: var(--oscuro) !important;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+/*
+
+footer
+
+*/
+
+.page-footer {
+    background-color: var(--oscuro)  !important;
+    color: black;
+}
+/*
+left del menu debe ser un color dark 3 para que se note la diferencia
+*/
+
+.left-menu{
+    background-color: var(--claro) !important;
+    color: black;
+}
+
+
+/*
+<p:menuButton styleClass="pmenuButtton"
+*/
+
+
+.pmenuButton .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background-color: var(--oscuro) !important;
+    background: var(--oscuro) !important;
+    border: 1px solid #004d40;
+    /*color: #E3E3E3;*/
+    color: #000;
+    font-weight: normal;
+}
+button.ui-button.ui-widget.colornomral{
+    background-color: var(--claro);
+    color: #000;
+}
