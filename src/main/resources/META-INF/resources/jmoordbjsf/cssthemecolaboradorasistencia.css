@@ -19,13 +19,15 @@ top
 :root{
     --oscuro: #00695c;
     --claro: #4db6ac;
+    --colortexto1: #fff;
+    --colorfondohighlight: gray;
 }
 
-.nav-wrapper {
+.nav-wrapper, .nav-wrapper .ui-outputlabel {
     background-color: var(--oscuro) !important;
     font-size: 14px;
     font-weight: bold;
-    color: #000;
+    color: var(--colortexto1);
 }
 
 /*
@@ -34,9 +36,9 @@ footer
 
 */
 
-.page-footer {
+.page-footer,.page-footer .ui-outputlabel {
     background-color: var(--oscuro)  !important;
-    color: black;
+    color: var(--colortexto1);
     font-family: "latoregular","Trebuchet MS",Arial,Helvetica,sans-serif;
     font-size: 12px;
 }
@@ -70,4 +72,13 @@ button.ui-button.ui-widget.colornomral
 button.ui-button.ui-widget.colornomral{
     background-color: var(--claro);
     color: #000;
+}
+
+.ui-button, button.ui-button.ui-state-default, .ui-button.ui-state-default{
+    background-color: var(--claro);
+    color: var(--colortexto1);
+}
+button.ui-button.ui-state-hover, .ui-button.ui-state-hover, button.ui-button.ui-state-focus, .ui-button.ui-state-focus{
+    background-color: var(--colorfondohighlight);
+    color: var(--colortexto1);
 }
