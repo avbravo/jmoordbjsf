@@ -71,7 +71,7 @@ button.ui-button.ui-widget.colornomral
 }
 button.ui-button.ui-widget.colornomral{
     background-color: var(--claro);
-    color: #000;
+    color: var(--colortexto1);
 }
 
 .ui-button, button.ui-button.ui-state-default, .ui-button.ui-state-default{
@@ -82,3 +82,21 @@ button.ui-button.ui-state-hover, .ui-button.ui-state-hover, button.ui-button.ui-
     background-color: var(--colorfondohighlight);
     color: var(--colortexto1);
 }
+
+.ui-outputlabel.ui-widget.fuentetextoregular.active{
+    background-color: transparent;
+}
+
+.waves-effect.waves-light.btn.coloraplicacion{
+    background-color: var(--oscuro);
+    color: var(--colortexto1);
+}
+
+a.timeminutoshoras.lineabajo i.material-icons{
+    border-bottom: 5px solid var(--oscuro);
+}
+
+.topnav.hide-on-large-only .active{
+    background-color: var(--claro); 
+}
+
